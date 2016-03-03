@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Login</title>
+
+        <h:outputStylesheet library="css" name="SysTapete.css"/>
+         <style type="text/css">
+            body {
+                background-image: url("resources/imagens/background.jpg");
+                background-color: #cccccc;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div id="login-dialog">
+           
+
+            <h:form id="frm">
+
+                <h:panelGrid columns="2" styleClass="grid-login">
+
+                    <f:facet name="header">
+                        <h:graphicImage library="imagens" name="logo.png" style="width: 250px" />
+                    </f:facet>
+
+                    <p:outputLabel value="E-mail" />
+                    <p:inputText size="30" />
+
+                    <p:outputLabel value="Senha" />
+                    <p:password size="30" />
+
+                    <h:panelGroup/>
+                    <h:panelGroup >
+                        <p:commandButton value="Login" action="index?faces-redirect=true" />
+                        <p:commandLink value="Esqueceu a senha ?" style="margin-left: 30px" action="/esqueciMinhaSenha?faces-redirect=true" />
+                    </h:panelGroup>
+                </h:panelGrid>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+
