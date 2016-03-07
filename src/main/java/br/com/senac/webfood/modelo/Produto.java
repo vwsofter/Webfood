@@ -5,15 +5,24 @@
  */
 package br.com.senac.webfood.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 /**
  *
- * @author Wagner Xavier
+ * @author sala306b
  */
-public class Produto extends Entidade{
+@Entity
+public class Produto extends Entidade {
+
     private String descricao;
-    private TipoProduto tipodeproduto;
-    private boolean situacao;
-    private double valorunitario;
+    private double Preco;
+    @ManyToOne
+    private Complemento complemento;
+
+    public Produto() {
+        this.complemento = new Complemento();
+    }
 
     public String getDescricao() {
         return descricao;
@@ -23,34 +32,20 @@ public class Produto extends Entidade{
         this.descricao = descricao;
     }
 
-    public TipoProduto getTipodeproduto() {
-        return tipodeproduto;
+    public double getPreco() {
+        return Preco;
     }
 
-    public void setTipodeproduto(TipoProduto tipodeproduto) {
-        this.tipodeproduto = tipodeproduto;
+    public void setPreco(double preco) {
+        this.Preco = preco;
     }
 
-    public boolean isSituacao() {
-        return situacao;
+    public Complemento getComplemento() {
+        return complemento;
     }
 
-    public void setSituacao(boolean situacao) {
-        this.situacao = situacao;
+    public void setcomplemento(Complemento complemento) {
+        this.complemento = complemento;
     }
 
-    public double getValorunitario() {
-        return valorunitario;
-    }
-
-    public void setValorunitario(double valorunitario) {
-        this.valorunitario = valorunitario;
-    }
-
-
-    
-    
-    
-    
-    
 }

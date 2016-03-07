@@ -5,7 +5,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0px;
     font-weight: normal;
-    background-image:image (#ffffff);
+    
 }
 
 header {
@@ -25,7 +25,7 @@ header > div {
 
 #conteudo {
     padding: 0px 8px;
-      
+
 }
 
 

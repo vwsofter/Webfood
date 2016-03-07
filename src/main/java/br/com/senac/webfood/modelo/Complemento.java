@@ -5,11 +5,14 @@
  */
 package br.com.senac.webfood.modelo;
 
+import javax.persistence.Entity;
 /**
  *
- * @author Wagner Xavier
+ * @author Gleison
  */
-public class Complemento extends Entidade{
+@Entity
+public class Complemento extends Entidade{ 
+   
     private String descricao;
 
     public String getDescricao() {
@@ -19,5 +22,7 @@ public class Complemento extends Entidade{
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+ 
+  
     
 }

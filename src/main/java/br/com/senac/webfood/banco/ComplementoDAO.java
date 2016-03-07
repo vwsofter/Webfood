@@ -9,12 +9,12 @@ import br.com.senac.webfood.modelo.Complemento;
 import java.util.List;
 import javax.persistence.Query;
 
+/**
+ *
+ * @author daniel
+ */
+public class ComplementoDAO extends DAO<Complemento> {
 
-public class ComplementoDAO extends DAO<Complemento>{
-    
-    /**
-     *
-     */
     public ComplementoDAO() {
         super(Complemento.class);
     }
@@ -62,6 +62,4 @@ public class ComplementoDAO extends DAO<Complemento>{
 
     }
 
-    
-    
 }
