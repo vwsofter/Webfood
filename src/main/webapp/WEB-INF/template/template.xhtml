@@ -17,45 +17,9 @@
 
         <p:layout fullPage="true">
 
-            <p:layoutUnit position="north" size="100"  >
+            <p:layoutUnit position="north" size="200"  >
                 <div>
-                  
-                    <h:outputText value="Cabeçalho"  />  
-                    
-                </div>
-
-            </p:layoutUnit>
-
-            <p:layoutUnit position="south" size="100" header="" resizable="true" closable="true" collapsible="true">
-
-                <div>
-                    <center> 
-                        <h:outputText value="Emporio do Açaí Todos os Direitos Reservados © 2016 | Política de privacidade | Termos de uso | Criado por Web Food" />
-                    </center>
-
-                </div>
-            </p:layoutUnit>
-
-            <p:layoutUnit position="west" size="200" header="Menu" resizable="true" closable="true" collapsible="true">
-                <h:outputText value="Lado 1" />
-                <ui:define name="conteudo" ></ui:define>
-
-            </p:layoutUnit>
-
-            <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">
-                <div>
-
-                <h:outputText value="Lado 2" />  
-                 
-                
-                </div>
-            </p:layoutUnit>
-
-            <p:layoutUnit position="center">
-                <h:form prependId="false"  >
-                    <p:growl id="growl"  />
-                    <div id="conteudo" >
-                        <h:form>  
+                  <h:form>  
                             <p:growl id="messages"/>
 
                             <p:menubar>
@@ -104,10 +68,41 @@
                             </p:menubar>
                         </h:form>
 
-                        <img src="resources/imagem/FundoConteudo.jpg" alt=""/>
+                   
+                    
+                </div>
 
+            </p:layoutUnit>
 
+            <p:layoutUnit position="south" size="100" header="" resizable="true" closable="true" collapsible="true">
 
+                <div>
+                    <center> 
+                        <h:outputText value="Emporio do Açaí Todos os Direitos Reservados © 2016 | Política de privacidade | Termos de uso | Criado por Web Food" />
+                    </center>
+
+                </div>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="west" size="200" header="Menu" resizable="true" closable="true" collapsible="true">
+                <h:outputText value="Lado 1" />
+                <ui:define name="conteudo" ></ui:define>
+
+            </p:layoutUnit>
+
+            <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">
+                <div>
+
+                <h:outputText value="Lado 2" />  
+                 
+                
+                </div>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <h:form prependId="false"  >
+                    <p:growl id="growl"  />
+                    <div id="conteudo" >
                     </div>
                 </h:form>
 </p:layoutUnit>

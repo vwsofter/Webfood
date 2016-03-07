@@ -5,10 +5,10 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:define name="titulo">Complementos </ui:define>
+   
 
 
-  
+    <ui:define name="titulo">#{complementoBean.complemento.id == 0 ? 'Nova' : 'Alterando' }  Complemento</ui:define>
 
     <ui:define name="conteudo">
        
