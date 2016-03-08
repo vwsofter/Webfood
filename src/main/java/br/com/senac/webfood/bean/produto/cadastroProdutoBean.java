@@ -5,12 +5,11 @@
  */
 package br.com.senac.webfood.bean.produto;
 
-import br.com.senac.webfood.banco.ComplementoDAO;
 import br.com.senac.webfood.banco.ProdutoDAO;
 import br.com.senac.webfood.bean.Bean;
-import br.com.senac.webfood.modelo.Complemento;
+
 import br.com.senac.webfood.modelo.Produto;
-import java.util.List;
+
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 
@@ -24,19 +23,11 @@ public class cadastroProdutoBean extends Bean {
 
     private Produto produto;
     private ProdutoDAO dao = new ProdutoDAO();
-    private ComplementoDAO complementoDAO = new ComplementoDAO();
-    
-    
-    
-    
+
     public cadastroProdutoBean() {
-        if (this.produto == null){
+        if (this.produto == null) {
             this.limpar();
         }
-    }
-    
-    public List<Complemento> getListaComplementosAtiva(){
-        return complementoDAO.findAllAtivo() ;
     }
 
     public Produto getProduto() {
@@ -46,7 +37,7 @@ public class cadastroProdutoBean extends Bean {
     public void setProduto(Produto produto) {
         this.produto = produto;
     }
-    
+
     public String salvar() {
 
         try {
@@ -65,12 +56,12 @@ public class cadastroProdutoBean extends Bean {
 
         return null;
     }
-    
-    public String editar(){
+
+    public String editar() {
         return "/admin/Produto/cadastroProduto";
     }
-    
-    private void limpar(){
+
+    private void limpar() {
         this.produto = new Produto();
     }
 }

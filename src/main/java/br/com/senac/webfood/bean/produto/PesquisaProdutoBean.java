@@ -20,10 +20,10 @@ import javax.faces.view.ViewScoped;
 @ViewScoped
 public class PesquisaProdutoBean extends Bean {
 
-    private Long id;
+   
     private String descricao;
     private Boolean ativo;
-    private Long idComplemento;
+    
 
     private final ProdutoDAO dao = new ProdutoDAO();
 
@@ -32,14 +32,7 @@ public class PesquisaProdutoBean extends Bean {
     public PesquisaProdutoBean() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+ 
     public String getDescricao() {
         return descricao;
     }
@@ -64,17 +57,11 @@ public class PesquisaProdutoBean extends Bean {
         this.listaProdutos = listaProdutos;
     }
 
-    public Long getIdComplemento() {
-        return idComplemento;
-    }
-
-    public void setIdComplemento(Long idComplemento) {
-        this.idComplemento = idComplemento;
-    }
+  
 
     public void pesquisar() {
         try {
-            this.listaProdutos = dao.getProdutosByFiltro(id, descricao.trim(), ativo, idComplemento);
+            this.listaProdutos = dao.getProdutosByFiltro(id, descricao, ativo, );
         } catch (Exception ex) {
             addMessageError(ex.getMessage());
         }

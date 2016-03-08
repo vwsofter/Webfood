@@ -6,7 +6,7 @@
 package br.com.senac.webfood.modelo;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+
 
 /**
  *
@@ -17,12 +17,7 @@ public class Produto extends Entidade {
 
     private String descricao;
     private double Preco;
-    @ManyToOne
-    private Complemento complemento;
-
-    public Produto() {
-        this.complemento = new Complemento();
-    }
+   
 
     public String getDescricao() {
         return descricao;
@@ -38,14 +33,6 @@ public class Produto extends Entidade {
 
     public void setPreco(double preco) {
         this.Preco = preco;
-    }
-
-    public Complemento getComplemento() {
-        return complemento;
-    }
-
-    public void setcomplemento(Complemento complemento) {
-        this.complemento = complemento;
     }
 
 }

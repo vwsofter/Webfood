@@ -1,12 +1,96 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
-</html>
+<ui:composition template="/WEB-INF/template/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+    
+   
+    
+
+    <ui:define name="titulo">Pesquisa Produto</ui:define>
+  
+    <ui:define name="conteudo" >
+      
+        
+        
+        
+        <p:toolbar style="margin-top: 20px">
+            <p:toolbarGroup>
+                <p:commandButton value="Pesquisar" id="btnPesquisa" action="#{pesquisaProdutoBean.pesquisar}" update="@form"   />
+            </p:toolbarGroup>
+            <p:toolbarGroup align="right">
+                <p:button value="Novo" outcome="/admin/Produto/cadastroProduto" />
+            </p:toolbarGroup>
+        </p:toolbar>
+
+        <p:panelGrid columns="2" style="width: 100%; margin-top: 20px" columnClasses="rotulo , campo">
+
+            <p:outputLabel value="Código" for="codigo"/>
+            <p:inputText value="#{pesquisaProdutoBean.id}"  id="codigo" />
+            <p:outputLabel value="Descrição" for="descricao"/>
+            <p:inputText value="#{pesquisaProdutoBean.descricao}"  id="descricao" />
+            
+            
+           
+          
+       
+            
+            <p:outputLabel value="Situação" for="situacao"/>
+            <p:selectOneMenu id="situacao" value="#{pesquisaProdutoBean.ativo}" style="width: 130px;">
+                <f:selectItem itemLabel="Todos" itemValue="#{null}" />
+                <f:selectItem itemLabel="Ativo" itemValue="#{true}" />
+                <f:selectItem itemLabel="Inativo" itemValue="#{false}" />
+            </p:selectOneMenu>
+
+
+        </p:panelGrid>
+
+        <p:dataTable id="servicoTable" value="#{pesquisaProdutoBean.listaProdutos}" var="produto"
+                     style="margin-top: 20px" emptyMessage="Nenhuma Produto encontrado." rows="10"
+                     paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom"
+                     rowsPerPageTemplate="10,20,50">
+            <p:column headerText="Código" style="text-align: center; width: 100px">
+                <h:outputText value="#{produto.id}" />
+            </p:column>
+            <p:column headerText="Descrição">
+                <h:outputText value="#{produto.descricao}" />
+            </p:column>
+            
+            <p:column headerText="Preço Padrão" style="width: 100px; text-align: right">
+                <h:outputText value="#{produto.preco}" >
+                <f:convertNumber type="currency" currencySymbol="R$" locale="pt_Br" />
+                </h:outputText>
+            </p:column>
+            
+            <p:column headerText="Situação" style="text-align: center ; width: 50px">
+                <h:outputText value="#{produto.ativo ? 'Ativo' : 'Inativo'}"/>
+            </p:column>
+            <p:column style="width: 100px; text-align: center">
+                <p:commandButton action="#{produtoBean.editar}"   icon="ui-icon-pencil" title="Editar" ajax="false">
+                    <f:setPropertyActionListener target="#{produtoBean.produto}" value="#{produto}" />
+                </p:commandButton>
+                <p:commandButton icon="ui-icon-trash" title="Excluir" actionListener="#{pesquisaProdutoBean.excluir(produto)}" process="@this" update="growl , produtoTable" >
+                    <p:confirm header="Exclusão de Produto" 
+                               message="Tem certeza que deseja excluir o produto selecionando #{produto.id}?" icon="ui-icon-alert" />
+
+                </p:commandButton>
+            </p:column>
+        </p:dataTable>
+
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </p:confirmDialog>
+
+
+      
+                  
+    </ui:define>
+
+</ui:composition>   
+
+
+
+ 
