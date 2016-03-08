@@ -17,96 +17,164 @@
 
         <p:layout fullPage="true">
 
-            <p:layoutUnit position="north" size="200"  >
-                <div>
-                  <h:form>  
-                            <p:growl id="messages"/>
+            <p:layoutUnit position="north" size="80"  style="color: aqua" >
 
-                            <p:menubar>
-                                <p:submenu label="Arquivo" icon="ui-icon-document">
-                                    <p:submenu label="Cadastro" icon="ui-icon-contact">
-                                        <p:menuitem value="Cliente" url="admin/cliente/cadastroCliente" />
-                                        <p:menuitem value="Pesquisar Cliente" url="admin/cliente/pesquisaCliente" />
-                                        <p:menuitem value="Other" url="#" />
-                                    </p:submenu>
-                                    <p:menuitem value="Open" url="#" />
-                                    <p:separator />
-                                    <p:menuitem value="Quit" url="#" />
-                                </p:submenu>
 
-                                <p:submenu label="Edit" icon="ui-icon-pencil">
-                                    <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
-                                    <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
-                                </p:submenu>
 
-                                <p:submenu label="Help" icon="ui-icon-help">
-                                    <p:menuitem value="Contents" url="#" />
-                                    <p:submenu label="Search" icon="ui-icon-search">
-                                        <p:submenu label="Text">
-                                            <p:menuitem value="Workspace" url="#" />
-                                        </p:submenu>
-                                        <p:menuitem value="File" url="#" />
-                                    </p:submenu>
-                                </p:submenu>
 
-                                <p:submenu label="Ação" icon="ui-icon-gear">
-                                    <p:submenu label="Abrir Pedido" icon="ui-icon-refresh">
-                                        <p:menuitem value="Save" actionListener="#{menuView.save}" icon="ui-icon-disk" update="messages"/>
-                                        <p:menuitem value="Update" actionListener="#{menuView.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
-                                    </p:submenu>
-                                    <p:submenu label="Non-Ajax" icon="ui-icon-newwin">
-                                        <p:menuitem value="Delete" actionListener="#{menuView.delete}" icon="ui-icon-close" update="messages" ajax="false"/>
-                                    </p:submenu>
-                                </p:submenu>
+                <div style="display: inline-block; " >
+                    <h:link>
+                        <h:graphicImage library="imagem" name="logo.png" />
+                    </h:link>
+                </div>
+                <div style="width: 1000px;  display: inline-block ; margin-top: 5px; margin-left: 30px;position: absolute" >
+                     <h:form prependId="false">
+                        
+                            <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true"  />
+                        
+                    </h:form>
+                </div>
 
-                                <p:menuitem value="Quit" url="" icon="ui-icon-close" />
+                <div style="float: right; margin-right: 50px; margin-top: 20px">
+                    <span style="float: left; height: 30px; line-height: 30px;color: #000000; vertical-align:middle">
+                        Olá usuario !
 
-                                <f:facet name="options">
-                                    <p:inputText style="margin-right:10px" placeholder="Search"/>
-                                    <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
-                                </f:facet>
-                            </p:menubar>
+                        <h:form styleClass="logout">
+                            <p:commandLink  action="/login?faces-redirect=true" >
+                                <h:outputLabel value="Sair" style="vertical-align:middle; margin: 10px" />
+                                <h:graphicImage library="imagem" name="logout.png" style="vertical-align:middle"/>
+                            </p:commandLink>
                         </h:form>
 
-                   
-                    
+                    </span>
+
+
+
                 </div>
+
+
 
             </p:layoutUnit>
 
-            <p:layoutUnit position="south" size="100" header="" resizable="true" closable="true" collapsible="true">
-
-                <div>
-                    <center> 
-                        <h:outputText value="Emporio do Açaí Todos os Direitos Reservados © 2016 | Política de privacidade | Termos de uso | Criado por Web Food" />
-                    </center>
-
-                </div>
-            </p:layoutUnit>
 
             <p:layoutUnit position="west" size="200" header="Menu" resizable="true" closable="true" collapsible="true">
-                <h:outputText value="Lado 1" />
-                <ui:define name="conteudo" ></ui:define>
 
-            </p:layoutUnit>
 
-            <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">
-                <div>
+                <h:form>
+                    <p:panelMenu >
 
-                <h:outputText value="Lado 2" />  
-                 
-                
-                </div>
+                        <p:submenu label="Cliente" icon="ui-icon-folder-collapsed" >
+                            <p:menuitem value="Novo"  icon="ui-icon-document"/>
+                            <p:separator />
+                            <p:menuitem value="Pesquisar" icon="ui-icon-circle-zoomout"/>
+                            <p:separator />
+                            <p:menuitem value="Pesquisar Endereço" icon="ui-icon-circle-zoomout" />
+                        </p:submenu>
+                        <p:separator />
+                        <p:submenu label="Serviço" icon="ui-icon-folder-collapsed" >
+                            <p:menuitem value="Novo"  icon="ui-icon-document"/>
+                            <p:separator />
+                            <p:menuitem value="Pesquisar" icon="ui-icon-circle-zoomout"/>
+                            <p:separator />
+                            <p:submenu label="Complemento" icon="ui-icon-folder-collapsed" >
+                                <p:menuitem value="Novo" icon="ui-icon-document" outcome="/admin/Complementos/CadastrodeComplementos" />
+                                <p:separator />
+                                <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout" />
+                                <p:menuitem value="teste" icon="ui-icon-document" outcome="/admin/Complementos/teste" />
+                            </p:submenu>
+                        </p:submenu>
+                        <p:separator />
+                        <p:submenu label="Tipo de Endereço" icon="ui-icon-folder-collapsed">
+                            <p:menuitem value="Novo" icon="ui-icon-document"/>
+                            <p:separator />
+                            <p:menuitem value="Pesquisar" icon="ui-icon-circle-zoomout"/>
+                        </p:submenu>
+                        <p:separator />
+                        <p:submenu label="Tipo de Telefone" icon="ui-icon-folder-collapsed">
+                            <p:menuitem value="Novo"  icon="ui-icon-document"/>
+                            <p:separator />
+                            <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout"/>
+                        </p:submenu>
+                        <p:separator />
+                        <p:submenu label="Tipo de Entrega" icon="ui-icon-folder-collapsed">
+                            <p:menuitem value="Novo"  icon="ui-icon-document"/>
+                            <p:separator />
+                            <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout"/>
+                        </p:submenu>                    
+                        <p:separator />
+                        <p:submenu label="Forma de Pagamento" icon="ui-icon-folder-collapsed" style="font-size: 12px" >
+                            <p:menuitem value="Novo" icon="ui-icon-document" />
+                            <p:separator />
+                            <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout"/>
+                        </p:submenu>
+                        <p:separator />
+                        <p:submenu label="Usuário" icon="ui-icon-folder-collapsed">
+                            <p:menuitem value="Novo"  icon="ui-icon-document"/>
+                            <p:separator />
+                            <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout"/>
+                        </p:submenu>
+
+
+
+
+
+                        <p:submenu label="Pedido" icon="ui-icon-folder-collapsed" >
+                            <p:menuitem value="Novo" icon="ui-icon-document"/>
+                            <p:separator />
+                            <p:menuitem value="Pesquisar" icon="ui-icon-circle-zoomout"/>
+                        </p:submenu>
+
+                        <p:submenu label="Coleta" icon="ui-icon-folder-collapsed">
+                            <p:menuitem value="Novo"  icon="ui-icon-document"/>
+                            <p:separator />
+                            <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout"/>
+                        </p:submenu>
+
+                        <p:submenu label="Entrega" icon="ui-icon-folder-collapsed">
+                            <p:menuitem value="Novo" icon="ui-icon-document"/>
+                            <p:separator />
+                            <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout"/>
+                        </p:submenu>
+
+                        <p:submenu label="Relatórios" icon="ui-icon-folder-collapsed">
+                            <p:menuitem value="Clientes"  icon="ui-icon-document" />
+                            <p:separator />
+
+                        </p:submenu>
+
+                    </p:panelMenu>
+                </h:form>
             </p:layoutUnit>
 
             <p:layoutUnit position="center">
                 <h:form prependId="false"  >
-                    <p:growl id="growl"  />
+
                     <div id="conteudo" >
+
+                        <ui:insert name="titulo">
+                            <h1 >Teste</h1>
+                        </ui:insert>
+
+                        <ui:insert name="conteudo" >
+
+
+                        </ui:insert>
                     </div>
                 </h:form>
-</p:layoutUnit>
- </p:layout>
- </h:body>
+            </p:layoutUnit>
+
+
+            <p:layoutUnit position="south" size="20">
+
+
+                <footer>
+                    Emporio do Açaí Todos os Direitos Reservados © 2016 | Política de privacidade | Termos de uso | Criado por Web Food 
+                </footer>
+
+            </p:layoutUnit>
+
+
+        </p:layout>
+    </h:body>
 
 </html>

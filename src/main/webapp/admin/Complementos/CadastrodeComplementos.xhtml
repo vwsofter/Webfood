@@ -5,28 +5,27 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-   
+
 
 
     <ui:define name="titulo">#{complementoBean.complemento.id == 0 ? 'Nova' : 'Alterando' }  Complemento</ui:define>
 
     <ui:define name="conteudo">
-       
-        <p:toolbar style="margin-top: 20px">
-            <p:toolbarGroup>
-                <p:button value="Novo" outcome="/admin/Complementos/CadastrodeComplementos"/>
-                <p:commandButton value="Savlar" id="btnSalvar" action="#{complementoBean.salvar}" update="@form"    />
-            </p:toolbarGroup>
-            <p:toolbarGroup align="right">
-                <p:button value="Pesquisa" outcome="/admin/Complementos/PesquisaComplementos"/>
-            </p:toolbarGroup>
-        </p:toolbar>
-          
-          <!-- Grid    -->
+
+
+
+        <!-- Grid    -->
         <p:panelGrid columns="2" style="width: 100%; margin-top: 20px" columnClasses="rotulo , campo">
 
             <p:outputLabel value="Código" for="codigo"/>
-            <p:inputText value="#{complementoBean.complemento.id}" id="codigo" readonly="true" style="width: 40px" />
+            <h:panelGroup >
+                <p:inputText value="#{complementoBean.complemento.id}" id="codigo" readonly="true" style="width: 40px;vertical-align:middle;" />
+                <p:commandLink action="/admin/Complementos/PesquisaComplementos"  ajax="false"  immediate="true" >
+                    <h:graphicImage   library="imagem" name="Search-icon.png"  style="vertical-align:middle"/>    
+                </p:commandLink>
+
+            </h:panelGroup>
+
             <p:outputLabel value="Descrição" for="descricao"/>
             <p:inputText value="#{complementoBean.complemento.descricao}" required="true" id="descricao" />
             <p:outputLabel value="Situação" for="situacao" />
@@ -37,8 +36,11 @@
             </p:selectOneRadio>
 
         </p:panelGrid>
-        <h:inputHidden value="#{complementoBean.complemento.id}" />
-
+        <div class="AlinhaDireita">
+            <p:button value="Novo" outcome="/admin/Complementos/CadastrodeComplementos"/>
+            <p:commandButton value="Savlar" id="btnSalvar" action="#{complementoBean.salvar}" update="@form , messages"    />
+            <h:inputHidden value="#{complementoBean.complemento.id}" />
+        </div>
 
     </ui:define>
 

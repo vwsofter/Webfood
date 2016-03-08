@@ -9,42 +9,125 @@
         <title>Login</title>
 
         <h:outputStylesheet library="css" name="webfood.css"/>
-         <style type="text/css">
-            body {
-                background-image: url("admin/beckgrald/fundo.jpg");
-                background-color: #cccccc;
+        <style type="text/css">
+
+
+            #conteudo{
+                margin-top: 60px;
+                /*Novamente definimos a largura da div*/
+                width:90%;
+                /* altura da div */
+                height:500px;
+                /* Cor de fundo da div */
+               
+            }  
+            #footer{
+
+
+                align-items: center;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                position: fixed; 
+                bottom: 0px; 
+                width: 100%; 
+                height: 30px; 
                 
+                color: #000;
             }
+
+
+            #conteudo-left{
+                /*Novamente definimos a largura da div*/
+                width:50%;
+                /* altura da div */
+                height:300px;
+                /* O atributo Float é utilizado para fazermos o nosso bloco(div) literalmente flutue e se posicione onde queremos na página, quando escolhemos left, dizemos que esse bloco irá se posicionar na parte esquerda da página */
+                float:left;
+                
+                
+                
+                
+                text-align: center ; 
+            }
+            #conteudo-right{
+                /*Novamente definimos a largura da div*/
+                width:50%;
+                /* altura da div */
+                height:400px;
+                /* Pode parecer meio estranho usarmos o mesmo atributo left para o bloco em que queremos posicionar na direita, mas como sabemos, o css é um estilo em cascata, nossa div conteúdo definimos a largura de 1000px e na conteudo-left 500px,
+            automaticamente ao definirmos o conteudo-right com 500px e à esquerda também, ele ficou à direita do conteudo-left, pois o máximo que a div filha poderá ter é 1000px, sendo 500+500=1000px */
+                float:left;
+                /* Cor de fundo da div */
+               
+            }
+
+
+
+
         </style>
     </h:head>
     <h:body>
-        <div id="login-dialog">
-           
 
-            <h:form id="frm">
+        <div id="site">
 
-                <h:panelGrid columns="2" styleClass="grid-login">
+            <div id="header"></div>
 
-                    <f:facet name="header">
-                        
-                        
+            <div id="conteudo"><!-- abrimos a div conteudo -->
+
+                <div id="conteudo-left">
                     
-                    </f:facet>
+                    <h:graphicImage library="imagem" name="acai_login.png" style=" border-radius: 50px;" />
                     
-                    <p:outputLabel value="E-mail" />
-                    <p:inputText size="30" />
+                </div>
+                <div id="conteudo-right">
 
-                    <p:outputLabel value="Senha" />
-                    <p:password size="30" />
 
-                    <h:panelGroup/>
-                    <h:panelGroup >
-                        <p:commandButton value="Login" action="index?faces-redirect=true" />
-                        <p:commandLink value="Esqueceu a senha ?" style="margin-left: 30px" action="/esqueciMinhaSenha?faces-redirect=true" />
-                    </h:panelGroup>
-                </h:panelGrid>
-            </h:form>
+                    <div id="login-dialog">
+
+
+                        <h:form id="frm">
+
+                            <h:panelGrid columns="2" styleClass="grid-login">
+
+                                <f:facet name="header">
+
+                                 Entrar
+
+                                </f:facet>
+
+                                <p:outputLabel value="E-mail" />
+                                <p:inputText size="30" />
+
+                                <p:outputLabel value="Senha" />
+                                <p:password size="30" />
+
+                                <h:panelGroup/>
+                                <h:panelGroup >
+                                    <p:commandButton value="Login" action="index?faces-redirect=true" />
+                                    <p:commandLink value="Esqueceu a senha ?" style="margin-left: 30px" action="/esqueciMinhaSenha?faces-redirect=true" />
+                                </h:panelGroup>
+                            </h:panelGrid>
+                        </h:form>
+                    </div>
+
+
+                </div>
+
+            </div><!-- aqui fechamos a div conteudo -->
+
+            <div id="footer">
+
+                Emporio do Açaí Todos os Direitos Reservados © 2016 | Política de privacidade | Termos de uso | Criado por Web Food 
+
+
+            </div>
+
         </div>
+
+
+
     </h:body>
 </html>
 
