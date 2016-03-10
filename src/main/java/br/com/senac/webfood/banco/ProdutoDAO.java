@@ -21,7 +21,7 @@ public class ProdutoDAO extends DAO<Produto>{
        super(Produto.class);
    } 
     
-   public List<Produto> getProdutosByFiltro(Long id, String descricao, Boolean ativo, Long idComplemento)  {
+   public List<Produto> getProdutosByFiltro(Long id, String descricao, Boolean ativo)  {
 
         List<Produto> listaProdutos;
 
@@ -39,10 +39,7 @@ public class ProdutoDAO extends DAO<Produto>{
             sb.append(" and s.ativo = :Ativo");
         }
         
-        if (idComplemento != null) {
-            sb.append(" and s.complemento.id = :IdComplemento");
-        }
-
+       
         this.em = JPAUtil.getEntityManager();
 
         em.getTransaction().begin();
@@ -60,10 +57,7 @@ public class ProdutoDAO extends DAO<Produto>{
             query.setParameter("Ativo", ativo);
         }
         
-        if (idComplemento != null) {
-            query.setParameter("IdComplemento", idComplemento);
-        }
-        
+      
 
         listaProdutos = query.getResultList();
         em.getTransaction().commit();

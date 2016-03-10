@@ -48,7 +48,9 @@ public abstract class DAO<T> {
         List<T> list;
         em.getTransaction().begin();
         Query query = em.createQuery("from " + entidade.getName()
-                + " e where e.ativo=:Ativo");
+                + " e where e.ativo=:Ativo"
+                + ""
+                + "");
         query.setParameter("Ativo", true);
         list = query.getResultList();
         em.getTransaction().commit();

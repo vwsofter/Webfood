@@ -8,9 +8,12 @@ package br.com.senac.webfood.bean.produto;
 import br.com.senac.webfood.banco.ProdutoDAO;
 import br.com.senac.webfood.bean.Bean;
 import br.com.senac.webfood.modelo.Produto;
+
 import java.util.List;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
+
+
 
 /**
  *
@@ -20,7 +23,7 @@ import javax.faces.view.ViewScoped;
 @ViewScoped
 public class PesquisaProdutoBean extends Bean {
 
-   
+    private long id;
     private String descricao;
     private Boolean ativo;
     
@@ -61,7 +64,7 @@ public class PesquisaProdutoBean extends Bean {
 
     public void pesquisar() {
         try {
-            this.listaProdutos = dao.getProdutosByFiltro(id, descricao, ativo, );
+            this.listaProdutos = dao.getProdutosByFiltro(Long.MIN_VALUE , descricao, ativo);
         } catch (Exception ex) {
             addMessageError(ex.getMessage());
         }
@@ -77,6 +80,14 @@ public class PesquisaProdutoBean extends Bean {
             addMessageError(ex.getMessage());
         }
 
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
 }

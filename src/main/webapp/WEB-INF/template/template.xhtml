@@ -64,9 +64,9 @@
                     <p:panelMenu >
 
                         <p:submenu label="Cliente" icon="ui-icon-folder-collapsed" >
-                            <p:menuitem value="Novo"  icon="ui-icon-document"/>
+                            <p:menuitem value="Novo"  icon="ui-icon-document" outcome="/admin/cliente/cadastroCliente" />
                             <p:separator />
-                            <p:menuitem value="Pesquisar" icon="ui-icon-circle-zoomout"/>
+                            <p:menuitem value="Pesquisar" icon="ui-icon-circle-zoomout" outcome="/admin/cliente/pesquisaCliente" />
                             <p:separator />
                             <p:menuitem value="Pesquisar Endereço" icon="ui-icon-circle-zoomout" />
                         </p:submenu>
@@ -74,18 +74,18 @@
                         <p:submenu label="Produto" icon="ui-icon-folder-collapsed" >
                             <p:menuitem value="Novo"  icon="ui-icon-document" outcome="/admin/Produto/cadastroProduto"/>
                             <p:separator />
-                            <p:menuitem value="Pesquisar" icon="ui-icon-circle-zoomout"/>
+                            <p:menuitem value="Pesquisar" icon="ui-icon-circle-zoomout" outcome="/admin/Produto/pesquisaProduto"/>
                             <p:separator />
                             <p:submenu label="Complemento" icon="ui-icon-folder-collapsed" >
                                 <p:menuitem value="Novo" icon="ui-icon-document" outcome="/admin/Complementos/CadastrodeComplementos" />
                                 <p:separator />
-                                <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout" />
+                                <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout" outcome="/admin/Complementos/PesquisaComplementos" />
                                
                             </p:submenu>
                         </p:submenu>
                         <p:separator />
                         <p:submenu label="Tipo de Endereço" icon="ui-icon-folder-collapsed">
-                            <p:menuitem value="Novo" icon="ui-icon-document"/>
+                            <p:menuitem value="Novo" icon="ui-icon-document" />
                             <p:separator />
                             <p:menuitem value="Pesquisar" icon="ui-icon-circle-zoomout"/>
                         </p:submenu>

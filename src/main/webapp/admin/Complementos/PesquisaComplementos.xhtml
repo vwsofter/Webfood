@@ -11,6 +11,7 @@
 
 
 
+      
         <p:toolbar style="margin-top: 20px">
             <p:toolbarGroup>
                 <p:commandButton value="Pesquisar" id="btnPesquisa" action="#{pesquisaComplementoBean.pesquisar}" update="@form"   />
@@ -37,7 +38,7 @@
         </p:panelGrid>
 
         <p:dataTable id="categoriaTable" value="#{pesquisaComplementoBean.listaComplementosFiltrado}" var="complemento"
-                     style="margin-top: 20px" emptyMessage="Nenhuma complemento encontrado." rows="10"
+                     style="margin-top: 20px" emptyMessage=" !!Nenhum Complemento Encontrado." rows="10"
                      paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom"
                      rowsPerPageTemplate="10,20,50">
             <p:column headerText="Código" style="text-align: center; width: 100px">
@@ -54,7 +55,7 @@
                     <f:setPropertyActionListener target="#{complementoBean.complemento}" value="#{complemento}" />
                 </p:commandButton>
                 <p:commandButton icon="ui-icon-trash" title="Excluir" actionListener="#{pesquisaComplementoBean.excluir(complemento)}" process="@this" update="growl , complementoTable" >
-                    <p:confirm header="Exclusão de complemento" 
+                    <p:confirm header="Exclusão de Complemento" 
                                message="Tem certeza que deseja excluir o complemento #{complemento.id}?" icon="ui-icon-alert" />
 
                 </p:commandButton>
@@ -65,8 +66,6 @@
             <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
             <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
         </p:confirmDialog>
-
-
 
 
     </ui:define>

@@ -15,9 +15,13 @@ import javax.persistence.Entity;
 @Entity
 public class Produto extends Entidade {
 
+  
     private String descricao;
     private double Preco;
+
+       
    
+    
 
     public String getDescricao() {
         return descricao;
