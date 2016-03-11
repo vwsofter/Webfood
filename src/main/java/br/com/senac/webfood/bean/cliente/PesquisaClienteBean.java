@@ -65,7 +65,7 @@ public class PesquisaClienteBean extends Bean {
 
     public void pesquisar() {
         try {
-            this.listaClientesFiltrado = dao.getClienteByFiltro(id, nome,ativo);
+            this.listaClientesFiltrado = dao.getClienteByFiltros(id, nome, nome, nome, nome, nome, nome, ativo);
         } catch (Exception ex) {
            
         }

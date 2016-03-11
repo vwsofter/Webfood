@@ -23,6 +23,7 @@ public class JPAUtil {
             emf = Persistence.createEntityManagerFactory("WebFoodPU");
             em = emf.createEntityManager();
         } catch (Exception ex) {
+            ex.printStackTrace();
             throw new RuntimeException("Erro ao acessar banco de dados!");
         }
         return em;

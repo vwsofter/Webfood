@@ -19,7 +19,7 @@ public class ClienteDAO extends DAO<Cliente> {
         super(Cliente.class);
     }
 
-    public List<Cliente> getClienteByFiltro(Long id, String nome, Boolean ativo) {
+    public List<Cliente> getClienteByFiltros(Long id, String nome, String telefone1, String telefone2, String endereco, String bairro, String pontoReferencia, Boolean ativo) {
 
         List<Cliente> listaCliente;
 
