@@ -1,12 +1,61 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
-</html>
+<ui:composition template="/WEB-INF/template/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    
+   
+    
+
+    <ui:define name="titulo">Cadastro de Cliente</ui:define>
+  
+    <ui:define name="conteudo" >
+      
+        
+            <p:toolbar style="margin-top: 20px">
+            <p:toolbarGroup>
+                <p:button value="Novo" outcome="/admin/cliente/cadastroCliente"/>
+                <p:commandButton value="Salvar" id="btnSalvar" action="#{ClienteBean.salvar}" update="@form"    />
+            </p:toolbarGroup>
+            <p:toolbarGroup align="right">
+                <p:button value="Pesquisa" outcome="/admin/cliente/pesquisaCliente"/>
+            </p:toolbarGroup>
+        </p:toolbar>
+        
+         <p:panelGrid columns="2" style="width: 100%; margin-top: 20px" columnClasses="rotulo , campo">
+
+            <p:outputLabel value="Código" for="codigo"/>
+            <p:inputText value="#{ClienteBean.cliente.id}" id="codigo" readonly="true" style="width: 40px" />
+            
+            <p:outputLabel value="Nome" for="nome"/>
+            <p:inputText value="#{ClienteBean.cliente.nome}" required="true" id="nome" />
+            
+            <p:outputLabel value="Telefone1" for="telefone1"/>
+            <p:inputText value="#{ClienteBean.cliente.telefone1}" required="true" id="telefone1" />
+            
+            <p:outputLabel value="Telefone2" for="telefone2"/>
+            <p:inputText value="#{ClienteBean.cliente.telefone2}" required="true" id="telefone2" />
+            
+            <p:outputLabel value="Endereço" for="endereco"/>
+            <p:inputText value="#{ClienteBean.cliente.endereco}" required="true" id="endereco" />
+            
+            <p:outputLabel value="Bairro" for="bairro"/>
+            <p:inputText value="#{ClienteBean.cliente.bairro}" required="true" id="bairro" />
+            
+            <p:outputLabel value="Ponto de Referencia" for="pontodereferencia"/>
+            <p:inputText value="#{ClienteBean.cliente.pontoReferencia}" required="true" id="pontodereferencia" />
+            
+            
+         
+            
+            
+            
+        </p:panelGrid>
+
+                  
+    </ui:define>
+
+</ui:composition>   
 
