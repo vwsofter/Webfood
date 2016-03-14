@@ -71,6 +71,9 @@ public class PesquisaClienteBean extends Bean {
         }
 
     }
+    
+ 
+    
 
     public void excluir(Cliente cliente) {
         try {
