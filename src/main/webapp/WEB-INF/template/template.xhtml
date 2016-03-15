@@ -73,16 +73,25 @@
                         <p:separator />
                         <p:submenu label="Produto" icon="ui-icon-folder-collapsed" >
                             <p:menuitem value="Novo"  icon="ui-icon-document" outcome="/admin/Produto/cadastroProduto"/>
+                            </p:submenu>
                             <p:separator />
                             <p:menuitem value="Pesquisar" icon="ui-icon-circle-zoomout" outcome="/admin/Produto/pesquisaProduto"/>
-                            <p:separator />
-                            <p:submenu label="Complemento" icon="ui-icon-folder-collapsed" >
+                             <p:submenu label="Complemento" icon="ui-icon-folder-collapsed" >
                                 <p:menuitem value="Novo" icon="ui-icon-document" outcome="/admin/Complementos/CadastrodeComplementos" />
                                 <p:separator />
                                 <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout" outcome="/admin/Complementos/PesquisaComplementos" />
                                
                             </p:submenu>
-                        </p:submenu>
+                            
+                            <p:separator />
+                        <p:submenu label="Tipo de Produto" icon="ui-icon-folder-collapsed">
+                            <p:menuitem value="Novo" icon="ui-icon-document" outcome="/admin/TipoProduto/cadastrotipoProduto" />
+                            <p:separator />
+                            <p:menuitem value="Pesquisar" icon="ui-icon-circle-zoomout" outcome="/admin/TipoProduto/pesquisatipoProduto"/>
+                        </p:submenu>   
+                                  
+                                                   
+                             
                         <p:separator />
                         <p:submenu label="Pedido" icon="ui-icon-folder-collapsed">
                             <p:menuitem value="Novo" icon="ui-icon-document" outcome="/admin/Pedido/pedido" />
@@ -141,7 +150,7 @@
                             <p:separator />
 
                         </p:submenu>
-
+                        
                     </p:panelMenu>
                 </h:form>
             </p:layoutUnit>
