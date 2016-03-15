@@ -55,6 +55,9 @@ public class ClienteBean extends Bean {
         return null;
     }
 
+    public String editar(){
+        return"/admin/cliente/cadastroCliente";
+    }
   
 
     private void limpar() {
