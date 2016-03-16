@@ -30,17 +30,11 @@
             <p:outputLabel value="Descrição" for="descricao"/>
             <p:inputText value="#{TipoProdutoBean.tipoProduto.descricao}" required="true" id="descricao" />
            
-            <p:selectOneRadio id="situacao" value="#{TipoProdutoBean.tipoProduto.ativo}">
-                <f:selectItem itemLabel="Ativo" itemValue="#{true}" />
-                <f:selectItem itemLabel="Inativo" itemValue="#{false}" />
-            </p:selectOneRadio>
+           
+           
         </p:panelGrid>
         
-        <div class="AlinhaDireita">
-            <p:button value="Novo" outcome="/admin/TipoProduto/cadastrotipoProduto"/>
-            <p:commandButton value="Salvar" id="btnSalvar" action="#{TipoProdutoBean.salvar()}" update="@form , messages"    />
-            <h:inputHidden value="#{TipoProdutoBean.tipoProduto.id}" />
-        </div>
+       
                   
     </ui:define>
 

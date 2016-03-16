@@ -15,17 +15,13 @@ import javax.persistence.Entity;
 @Entity
 public class TipoProduto extends Entidade {
     
-    private long id;
+   
     private String descricao;
+   
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }          
+   
     
+          
   
     public String getDescricao() {
         return descricao;
