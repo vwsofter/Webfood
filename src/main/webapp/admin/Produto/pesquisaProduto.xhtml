@@ -47,7 +47,7 @@
 
         </p:panelGrid>
 
-        <p:dataTable id="servicoTable" value="#{pesquisaProdutoBean.listaProdutos}" var="produto"
+        <p:dataTable id="produtoTable" value="#{pesquisaProdutoBean.listaProdutos}" var="produto"
                      style="margin-top: 20px" emptyMessage="Nenhuma Produto encontrado." rows="10"
                      paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom"
                      rowsPerPageTemplate="10,20,50">
@@ -71,7 +71,7 @@
                 <p:commandButton action="#{produtoBean.editar}"   icon="ui-icon-pencil" title="Editar" ajax="false">
                     <f:setPropertyActionListener target="#{produtoBean.produto}" value="#{produto}" />
                 </p:commandButton>
-                <p:commandButton icon="ui-icon-trash" title="Excluir" actionListener="#{pesquisaProdutoBean.excluir(produto)}" process="@this" update="growl , produtoTable" >
+                <p:commandButton icon="ui-icon-trash" title="Excluir" actionListener="#{pesquisaProdutoBean.excluir(produto)}" process="@this" update="messages , produtoTable" >
                     <p:confirm header="Exclusão de Produto" 
                                message="Tem certeza que deseja excluir o produto selecionando #{produto.id}?" icon="ui-icon-alert" />
 

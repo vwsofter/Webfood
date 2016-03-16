@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senac.webfood.modelo;
 
 import javax.persistence.Entity;
@@ -14,19 +13,9 @@ import javax.persistence.Entity;
  */
 @Entity
 public class TipoProduto extends Entidade {
-    
-    private long id;
+
     private String descricao;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }          
-    
-  
     public String getDescricao() {
         return descricao;
     }
@@ -34,7 +23,5 @@ public class TipoProduto extends Entidade {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
-    
-    
+
 }

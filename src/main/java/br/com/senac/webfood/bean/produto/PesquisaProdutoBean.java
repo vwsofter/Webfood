@@ -13,8 +13,6 @@ import java.util.List;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 
-
-
 /**
  *
  * @author sala306b
@@ -23,10 +21,9 @@ import javax.faces.view.ViewScoped;
 @ViewScoped
 public class PesquisaProdutoBean extends Bean {
 
-    private long id;
+    private Long id;
     private String descricao;
     private Boolean ativo;
-    
 
     private final ProdutoDAO dao = new ProdutoDAO();
 
@@ -35,7 +32,6 @@ public class PesquisaProdutoBean extends Bean {
     public PesquisaProdutoBean() {
     }
 
- 
     public String getDescricao() {
         return descricao;
     }
@@ -60,11 +56,9 @@ public class PesquisaProdutoBean extends Bean {
         this.listaProdutos = listaProdutos;
     }
 
-  
-
     public void pesquisar() {
         try {
-            this.listaProdutos = dao.getProdutosByFiltro(Long.MIN_VALUE , descricao, ativo);
+            this.listaProdutos = dao.getProdutosByFiltro(Long.MIN_VALUE, descricao, ativo);
         } catch (Exception ex) {
             addMessageError(ex.getMessage());
         }
@@ -82,11 +76,11 @@ public class PesquisaProdutoBean extends Bean {
 
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

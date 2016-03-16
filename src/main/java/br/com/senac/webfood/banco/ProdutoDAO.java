@@ -27,7 +27,8 @@ public class ProdutoDAO extends DAO<Produto>{
 
         StringBuilder sb = new StringBuilder("from Produto s where 1 = 1 ");
 
-        if (id != null) {
+        if (id != null && id > 0 ) {
+            System.out.println("##############>>>>" + id);
             sb.append(" and s.id = :Id");
         }
 
@@ -45,7 +46,7 @@ public class ProdutoDAO extends DAO<Produto>{
         em.getTransaction().begin();
         Query query = em.createQuery(sb.toString());
 
-        if (id != null) {
+        if (id != null && id > 0 ) {
             query.setParameter("Id", id);
         }
 

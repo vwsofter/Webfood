@@ -8,7 +8,7 @@ package br.com.senac.webfood.bean.cliente;
 import br.com.senac.webfood.banco.ClienteDAO;
 import br.com.senac.webfood.bean.Bean;
 import br.com.senac.webfood.modelo.Cliente;
-import javax.faces.view.ViewScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 /**
@@ -16,7 +16,7 @@ import javax.inject.Named;
  * @author sala306b
  */
 @Named(value = "ClienteBean")
-@ViewScoped
+@RequestScoped
 public class ClienteBean extends Bean {
 
     private Cliente cliente;

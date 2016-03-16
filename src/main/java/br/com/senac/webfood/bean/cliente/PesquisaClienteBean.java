@@ -18,8 +18,7 @@ public class PesquisaClienteBean extends Bean {
 
     private Long id;
     private String nome;
-    
-  
+
     private Boolean ativo;
 
     private final ClienteDAO dao = new ClienteDAO();
@@ -46,7 +45,6 @@ public class PesquisaClienteBean extends Bean {
         this.nome = nome;
     }
 
-
     public Boolean getAtivo() {
         return ativo;
     }
@@ -67,21 +65,18 @@ public class PesquisaClienteBean extends Bean {
         try {
             this.listaClientesFiltrado = dao.getClienteByFiltros(id, nome, nome, nome, nome, nome, nome, ativo);
         } catch (Exception ex) {
-           
+            ex.printStackTrace();
         }
 
     }
-    
- 
-    
 
     public void excluir(Cliente cliente) {
         try {
-            dao.delete(cliente);
-            this.listaClientesFiltrado.remove(cliente);
-            addMessageInfo("Categoria" + cliente.getId() + " removido com sucesso!");
+            cliente.setAtivo(false);
+            dao.update(cliente);
+            addMessageInfo("Cliente" + cliente.getId() + " removido com sucesso!");
         } catch (Exception ex) {
-           
+            ex.printStackTrace();
         }
 
     }
