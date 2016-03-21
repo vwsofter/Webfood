@@ -9,9 +9,80 @@
    
     
 
-    <ui:define name="titulo">Cadastro de cliente</ui:define>
+    <ui:define name="titulo">Pesquisa de Cliente</ui:define>
   
     <ui:define name="conteudo" >
+        
+         <p:toolbar style="margin-top: 20px">
+            <p:toolbarGroup>
+                <p:commandButton value="Pesquisar" id="btnPesquisa" action="#{pesquisaClienteBean.pesquisar()}" update="@form"   />
+            </p:toolbarGroup>
+            <p:toolbarGroup align="right">
+                <p:button value="Novo" outcome="/admin/cliente/cadastroCliente" />
+            </p:toolbarGroup>
+        </p:toolbar>
+        
+         <p:panelGrid columns="2" style="width: 100%; margin-top: 20px" columnClasses="rotulo , campo">
+
+            <p:outputLabel value="Código" for="codigo"/>
+            <p:inputText value="#{pesquisaClienteBean.id}"  id="codigo" />
+            <p:outputLabel value="Nome" for="nome"/>
+            <p:inputText value="#{pesquisaClienteBean.nome}"  id="nome" />
+            <p:outputLabel value="Telefone1" for="telefone1"/>
+            <p:inputText value="#{ClienteBean.cliente.telefone1}"  id="telefone1" />
+             <p:outputLabel value="Telefone2" for="telefone2"/>
+             <p:inputText value="#{ClienteBean.cliente.telefone2}"  id="telefone2" />
+            
+            <p:outputLabel value="Situação" for="situacao"/>
+            <p:selectOneMenu id="situacao" value="#{pesquisaClienteBean.ativo}" style="width: 130px;">
+                <f:selectItem itemLabel="Todos" itemValue="#{null}" />
+                <f:selectItem itemLabel="Ativo" itemValue="#{true}" />
+                <f:selectItem itemLabel="Inativo" itemValue="#{false}" />
+            </p:selectOneMenu>
+         </p:panelGrid>
+        
+        <p:dataTable id="clienteTable" value="#{pesquisaClienteBean.listaClientesFiltrado}" var="cliente"
+                     style="margin-top: 20px" emptyMessage=" Nenhum Cliente Encontrado!!" rows="10"
+                     paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom"
+                     rowsPerPageTemplate="10,20,50">
+            <p:column headerText="Código" style="text-align: center; width: 100px">
+                <h:outputText value="#{cliente.id}" />
+            </p:column>
+            <p:column headerText="Nome">
+                <h:outputText value="#{cliente.nome}" />
+            </p:column>
+            <p:column headerText="Telefone1">
+                <h:outputText value="#{cliente.telefone1}" />
+            </p:column>
+             <p:column headerText="Telefone2">
+                 <h:outputText value="#{cliente.telefone2}" />
+            </p:column>
+            <p:column headerText="Situação" style="text-align: center ; width: 50px">
+                <h:outputText value="#{cliente.ativo ? 'Ativo' : 'Inativo'}"/>
+            </p:column>
+            <p:column style="width: 100px; text-align: center">
+                <p:commandButton action="#{ClienteBean.editar()}"   icon="ui-icon-pencil" title="Editar" ajax="false">
+                    <f:setPropertyActionListener target="#{ClienteBean.cliente}" value="#{cliente.id}" />
+                </p:commandButton>
+                <p:commandButton icon="ui-icon-trash" title="Excluir" actionListener="#{pesquisaClienteBean.excluir(cliente)}" process="@this" update="messages , clienteTable" >
+                    <p:confirm header="Exclusão de cliente" 
+                               message="Tem certeza que deseja excluir o cliente selecionando #{cliente.nome}?" icon="ui-icon-alert" />
+
+                </p:commandButton>
+            </p:column>
+        </p:dataTable>
+   
+             
+            
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </p:confirmDialog>
+
+           
+
+
+        
      
        
                   

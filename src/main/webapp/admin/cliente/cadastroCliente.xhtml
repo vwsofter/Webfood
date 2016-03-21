@@ -48,12 +48,18 @@
             <p:inputText value="#{ClienteBean.cliente.pontoReferencia}" required="true" id="pontodereferencia" />
             
             
-         
+            <p:selectOneRadio id="situacao" value="#{ClienteBean.cliente.ativo}" >
+                
+                <f:selectItem itemLabel="Ativo" itemValue="#{true}" />
+                <f:selectItem itemLabel="Inativo" itemValue="#{false}" />
+            </p:selectOneRadio>
+
             
             
             
         </p:panelGrid>
 
+        <h:inputHidden value="#{ClienteBean.cliente.id}" />
                   
     </ui:define>
 
