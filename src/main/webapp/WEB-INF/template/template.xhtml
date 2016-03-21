@@ -83,15 +83,15 @@
                         </p:submenu>                       
                     
                         <p:submenu label="Forma de Pagamento" icon="ui-icon-folder-collapsed" style="font-size: 12px" >
-                            <p:menuitem value="Novo" icon="ui-icon-document" />
+                            <p:menuitem value="Novo" icon="ui-icon-document" outcome="/admin/FormaPagamento/cadastroFormaPagamento" />
                             <p:separator />
-                            <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout"/>
+                            <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout" outcome="/admin/FormaPagamento/pesquisaFormaPagamento"/>
                         </p:submenu>
                       
-                        <p:submenu label="Usuário" icon="ui-icon-folder-collapsed">
-                            <p:menuitem value="Novo"  icon="ui-icon-document"/>
+                        <p:submenu label="Usuário" icon="ui-icon-folder-collapsed" style="font-size: 12px">
+                            <p:menuitem value="Novo"  icon="ui-icon-document" outcome="/admin/Usuario/cadastroUsuario"/>
                             <p:separator />
-                            <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout"/>
+                            <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout" outcome="/admin/Usuario/pesquisaUsuario"/>
                         </p:submenu>
                             <p:submenu label="Relatórios" icon="ui-icon-folder-collapsed">
                             <p:menuitem value="Clientes"  icon="ui-icon-document" />

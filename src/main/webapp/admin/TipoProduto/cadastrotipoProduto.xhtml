@@ -9,33 +9,37 @@
    
     
 
-    <ui:define name="titulo">Cadastro Tipo Produto</ui:define>
-  
-    <ui:define name="conteudo" >
-  
-      <p:toolbar style="margin-top: 20px">
-            <p:toolbarGroup>
-                <p:button value="Novo" outcome="/admin/TipoProduto/cadastrotipoProduto"/>
-                <p:commandButton value="Salvar" id="btnSalvar" action="#{TipoProdutoBean.salvar()}" update="@form"    />
-            </p:toolbarGroup>
-            <p:toolbarGroup align="right">
-                <p:button value="Pesquisa" outcome="/admin/TipoProduto/pesquisatipoProduto"/>
-            </p:toolbarGroup>
-        </p:toolbar>
-        
-         <p:panelGrid columns="2" style="width: 100%; margin-top: 20px" columnClasses="rotulo , campo">
+    <ui:define name="titulo">#{tipoProdutoBean.tipoProduto.id == 0 ? 'Novo' : 'Alterando' } Tipo de Produto</ui:define>
+
+    <ui:define name="conteudo">
+       <p:panelGrid columns="2" style="width: 100%; margin-top: 20px" columnClasses="rotulo , campo">
 
             <p:outputLabel value="Código" for="codigo"/>
-            <p:inputText value="#{TipoProdutoBean.tipoProduto.id}" id="codigo" readonly="true" style="width: 40px" />
+            <h:panelGroup >
+                <p:inputText value="#{tipoProdutoBean.tipoProduto.id}" id="codigo" readonly="true" style="width: 40px;vertical-align:middle;" />
+                <p:commandLink action="/admin/TipoProduto/pesquisatipoProduto"  ajax="false"  immediate="true" >
+                    <h:graphicImage   library="imagem" name="Search-icon.png"  style="vertical-align:middle"/>    
+                </p:commandLink>
+
+            </h:panelGroup>
+
             <p:outputLabel value="Descrição" for="descricao"/>
-            <p:inputText value="#{TipoProdutoBean.tipoProduto.descricao}" required="true" id="descricao" />
-           
-           
-           
+            <p:inputText value="#{tipoProdutoBean.tipoProduto.descricao}" required="true" id="descricao" />
+            <p:outputLabel value="Situação" for="situacao" />
+
+            <p:selectOneRadio id="situacao" value="#{tipoProdutoBean.tipoProduto.ativo}">
+                <f:selectItem itemLabel="Ativo" itemValue="#{true}" />
+                <f:selectItem itemLabel="Inativo" itemValue="#{false}" />
+            </p:selectOneRadio>
+
         </p:panelGrid>
+         <div class="AlinhaDireita">
+            <p:button value="Novo" outcome="/admin/TipoProduto/cadastrotipoProduto"/>
+            <p:commandButton value="Salvar" id="btnSalvar" action="#{tipoProdutoBean.salvar()}" update="@form , messages"    />
+            <h:inputHidden value="#{tipoProdutoBean.tipoProduto.id}" />
+        </div>
         
        
-                  
     </ui:define>
 
 </ui:composition>   

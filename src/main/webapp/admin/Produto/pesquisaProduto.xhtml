@@ -73,7 +73,7 @@
                 </p:commandButton>
                 <p:commandButton icon="ui-icon-trash" title="Excluir" actionListener="#{pesquisaProdutoBean.excluir(produto)}" process="@this" update="messages , produtoTable" >
                     <p:confirm header="Exclusão de Produto" 
-                               message="Tem certeza que deseja excluir o produto selecionando #{produto.id}?" icon="ui-icon-alert" />
+                               message="Tem certeza que deseja excluir o produto selecionando #{produto.descricao}?" icon="ui-icon-alert" />
 
                 </p:commandButton>
             </p:column>

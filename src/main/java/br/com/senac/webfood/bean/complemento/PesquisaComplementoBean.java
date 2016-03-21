@@ -8,7 +8,6 @@ package br.com.senac.webfood.bean.complemento;
 import br.com.senac.webfood.banco.ComplementoDAO;
 import br.com.senac.webfood.bean.Bean;
 import br.com.senac.webfood.modelo.Complemento;
-import com.sun.corba.se.spi.orbutil.fsm.Guard;
 import java.util.List;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -26,12 +25,18 @@ public class PesquisaComplementoBean extends Bean {
     private Boolean ativo;
 
     private final ComplementoDAO dao = new ComplementoDAO();
-
     private List<Complemento> listaComplementosFiltrado;
+    
+    
 
     public PesquisaComplementoBean() {
 
     }
+    
+    
+    
+    
+    
 
     public Long getId() {
         return id;
@@ -56,6 +61,12 @@ public class PesquisaComplementoBean extends Bean {
     public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
     }
+    
+    
+    
+    
+    
+    
 
     public List<Complemento> getListaComplementosFiltrado() {
         return listaComplementosFiltrado;

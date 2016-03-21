@@ -5,10 +5,14 @@
  */
 package br.com.senac.webfood.bean.TipoProduto;
 
+
 import br.com.senac.webfood.banco.TipoProdutoDAO;
 import br.com.senac.webfood.bean.Bean;
+import br.com.senac.webfood.modelo.Complemento;
 import br.com.senac.webfood.modelo.TipoProduto;
 import java.util.List;
+
+
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
@@ -19,23 +23,23 @@ import javax.inject.Named;
 @Named(value = "pesquisaTipoProdutoBean")
 @ViewScoped
 public class pesquisaTipoProdutoBean extends Bean {
-    
     private Long id;
     private String descricao;
     private Boolean ativo;
+  
+    private final TipoProdutoDAO dao= new TipoProdutoDAO();
+    private List<TipoProduto> listaTipoProdutosFiltrados;
     
     
-    private final TipoProdutoDAO dao = new TipoProdutoDAO();
     
-    private List<TipoProduto> listaTipoProdutoFiltrado;
-    
-    public pesquisaTipoProdutoBean(){
-       
-      
-        
-    }
-                
-               
+     
+  public pesquisaTipoProdutoBean(){
+          
+  }
+  
+  
+  
+
     public Long getId() {
         return id;
     }
@@ -60,27 +64,48 @@ public class pesquisaTipoProdutoBean extends Bean {
         this.ativo = ativo;
     }
     
-    
-    public List<TipoProduto> getListaTipoProdutosFiltrado(){
-        return listaTipoProdutoFiltrado;
+    public List<TipoProduto> getListaTipoProdutosFiltrados() {
+        return listaTipoProdutosFiltrados;
     }
-    
-    public void pesquisa(){
+   
+    public void setListaTipoProdutoFiltrados(List<TipoProduto> listaTipoProdutosFiltrados ){
+        this.listaTipoProdutosFiltrados = listaTipoProdutosFiltrados;
+        
+   }
+public void pesquisar() {
         try {
-            this.listaTipoProdutoFiltrado = dao.getTipoProdutoByFiltro(id, descricao, ativo);
+            this.listaTipoProdutosFiltrados = dao.getTipoProdutoByFiltro(id, descricao, ativo);
         } catch (Exception ex) {
             addMessageError(ex.getMessage());
         }
-    }
-    
-    public void excluir(TipoProduto tipoProduto){
+  
+      }
+
+
+
+    public void excluir(TipoProduto tipoProduto) {
         try {
             dao.delete(tipoProduto);
-            this.listaTipoProdutoFiltrado.remove(tipoProduto);
-            addMessageInfo("TipoProduto" + tipoProduto.getId() + "removido com sucesso!" );
+            this.listaTipoProdutosFiltrados.remove(tipoProduto);
+            addMessageInfo("Tipo de Produto" + tipoProduto.getId() + " removido com sucesso!");
         } catch (Exception ex) {
-            addMessageError("Não foi possivel remover o tipo de produto registro");
+            addMessageError("Não foi possivel remover o Tipo de Produto.");
         }
+
     }
-    
-}
+
+
+        
+
+        
+        
+        
+    }
+  
+  
+     
+  
+  
+     
+     
+

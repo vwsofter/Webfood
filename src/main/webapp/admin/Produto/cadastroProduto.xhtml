@@ -31,8 +31,17 @@
             <p:outputLabel value="Preço" for="preco"/>
             <p:inputText value="#{produtoBean.produto.preco}" required="true" id="preco" />
             
+            <p:selectOneRadio id="situacao" value="#{produtoBean.produto.ativo}">
+                <f:selectItem itemLabel="Ativo" itemValue="#{true}" />
+                <f:selectItem itemLabel="Inativo" itemValue="#{false}" />
+            </p:selectOneRadio>
+            
         </p:panelGrid>
         <h:inputHidden value="#{produtoBean.produto.id}" />
+      
+        
+        
+             
 
      </ui:define>
 

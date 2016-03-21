@@ -15,14 +15,8 @@ import javax.persistence.Entity;
 public class TipoProduto extends Entidade {
 
     private String descricao;
-   
 
-
-   
-    
-          
-  
-
+      
     public String getDescricao() {
         return descricao;
     }
@@ -30,5 +24,9 @@ public class TipoProduto extends Entidade {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+  
+    
+
 
 }

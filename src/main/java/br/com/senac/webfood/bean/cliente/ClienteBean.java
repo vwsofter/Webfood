@@ -8,6 +8,7 @@ package br.com.senac.webfood.bean.cliente;
 import br.com.senac.webfood.banco.ClienteDAO;
 import br.com.senac.webfood.bean.Bean;
 import br.com.senac.webfood.modelo.Cliente;
+import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
@@ -28,6 +29,8 @@ public class ClienteBean extends Bean {
         }
     }
 
+     private List<Cliente> listaCliente;
+    
     public Cliente getCliente() {
         return cliente;
     }
@@ -54,6 +57,21 @@ public class ClienteBean extends Bean {
 
         return null;
     }
+   public void excluir(Cliente cliente){
+       try {
+          dao.delete(cliente);
+          this.listaCliente.remove(cliente);
+           addMessageInfo("Cliente"+ cliente.getId()+"Removido Com sucesso!!");
+       } catch (Exception ex) {
+           addMessageError(ex.getMessage());
+       }
+    
+       
+       
+       
+   }
+   
+   
 
     public String editar(){
         return"/admin/cliente/cadastroCliente";

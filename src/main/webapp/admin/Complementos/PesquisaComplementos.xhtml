@@ -8,9 +8,6 @@
     <ui:define name="titulo">Pesquisa de Complemento</ui:define>
 
     <ui:define name="conteudo">
-
-
-
       
         <p:toolbar style="margin-top: 20px">
             <p:toolbarGroup>
@@ -37,7 +34,7 @@
 
         </p:panelGrid>
 
-        <p:dataTable id="categoriaTable" value="#{pesquisaComplementoBean.listaComplementosFiltrado}" var="complemento"
+        <p:dataTable id="complementoTable" value="#{pesquisaComplementoBean.listaComplementosFiltrado}" var="complemento"
                      style="margin-top: 20px" emptyMessage=" !!Nenhum Complemento Encontrado." rows="10"
                      paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom"
                      rowsPerPageTemplate="10,20,50">
@@ -54,7 +51,7 @@
                 <p:commandButton action="#{complementoBean.editar}"   icon="ui-icon-pencil" title="Editar" ajax="false">
                     <f:setPropertyActionListener target="#{complementoBean.complemento}" value="#{complemento}" />
                 </p:commandButton>
-                <p:commandButton icon="ui-icon-trash" title="Excluir" actionListener="#{pesquisaComplementoBean.excluir(complemento)}" process="@this" update="growl , complementoTable" >
+                <p:commandButton icon="ui-icon-trash" title="Excluir" actionListener="#{pesquisaComplementoBean.excluir(complemento)}" process="@this" update="messages , complementoTable" >
                     <p:confirm header="Exclusão de Complemento" 
                                message="Tem certeza que deseja excluir o complemento #{complemento.id}?" icon="ui-icon-alert" />
 
