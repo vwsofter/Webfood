@@ -26,7 +26,11 @@ import javax.enterprise.context.RequestScoped;
 @RequestScoped
 public class ComplementoBean extends Bean {
 
-    private Complemento complemento;
+    private String[] selectedComplemento; 
+    private List<Complemento> complementos;
+    
+     private Complemento complemento;
+    
     private final ComplementoDAO dao = new ComplementoDAO ();
 
     public ComplementoBean() {
@@ -39,12 +43,10 @@ public class ComplementoBean extends Bean {
         return complemento;
     }
 
-    public void setComplemento(Complemento complemento) {
-        this.complemento = complemento;
-    }
     public List<Complemento> getListaComplementos(){
         return dao.findAll() ;
     }
+  
 
     public String salvar() {
 
@@ -71,6 +73,14 @@ public class ComplementoBean extends Bean {
 
     private void limpar() {
         this.complemento = new Complemento();
+    }
+
+    public String[] getSelectedComplemento() {
+        return selectedComplemento;
+    }
+
+    public void setSelectedComplemento(String[] selectedComplemento) {
+        this.selectedComplemento = selectedComplemento;
     }
 
 }

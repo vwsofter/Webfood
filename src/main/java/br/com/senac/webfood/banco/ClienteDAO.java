@@ -6,6 +6,7 @@
 package br.com.senac.webfood.banco;
 
 import br.com.senac.webfood.modelo.Cliente;
+import br.com.senac.webfood.modelo.Produto;
 import java.util.List;
 import javax.persistence.Query;
 
@@ -64,6 +65,32 @@ public class ClienteDAO extends DAO<Cliente> {
         em.close();
 
         return listaCliente;
+        
+
+     
+   
+    }
+        public List<Cliente> findByNome(String descricao) {
+
+        List<Cliente> listaCliente;
+
+        String sql = "from Cliente s where s.descricao like :Descricao ";
+
+        this.em = JPAUtil.getEntityManager();
+
+        em.getTransaction().begin();
+        Query query = em.createQuery(sql);
+
+        query.setParameter("Descricao",  descricao + "%");
+
+        listaCliente = query.getResultList();
+        em.getTransaction().commit();
+        em.close();
+        
+
+        return listaCliente;
+        
+        
 
     }
 

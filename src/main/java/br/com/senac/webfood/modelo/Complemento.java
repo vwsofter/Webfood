@@ -5,14 +5,18 @@
  */
 package br.com.senac.webfood.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
 /**
  *
  * @author Gleison
  */
 @Entity
-public class Complemento extends Entidade{ 
-   
+public class Complemento extends Entidade {
+
     private String descricao;
 
     public String getDescricao() {
@@ -22,7 +26,24 @@ public class Complemento extends Entidade{
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
- 
-  
-    
+    private String[] selectedComplemento;
+    @OneToMany
+    private List<Complemento> complementos;
+
+    public String[] getSelectedComplemento() {
+        return selectedComplemento;
+    }
+
+    public void setSelectedComplemento(String[] selectedComplemento) {
+        this.selectedComplemento = selectedComplemento;
+    }
+
+    public List<Complemento> getComplementos() {
+        return complementos;
+    }
+
+    public void setComplementos(List<Complemento> complementos) {
+        this.complementos = complementos;
+    }
+
 }

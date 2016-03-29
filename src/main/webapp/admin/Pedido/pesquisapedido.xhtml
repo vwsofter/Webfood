@@ -5,20 +5,56 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    
-   
+
+
+
+
+    <ui:define name="titulo">Pesquisar pedido</ui:define>
+
+    <ui:define name="conteudo" ><p:toolbar style="margin-top: 20px">
+        <p:toolbarGroup>
+            <p:commandButton value="Pesquisar" id="btnPesquisa" action="#{pesquisapedidoBean.pesquisar()}" update="@form"/>
+        </p:toolbarGroup>
+        <p:toolbarGroup align="right">
+            <p:button value="Novo" outcome="/admin/Pedido/pedido"/>
+        </p:toolbarGroup>
+    </p:toolbar>
+    <p:panelGrid columns="2" style="width: 100%; margin-top: 20px" columnClasses="rotulo , campo">
+        <p:outputLabel value="Código" for="codigo"/>
+        <p:inputText value="#{pesquisapedidoBean.id}" id="codigo"/>
+        <p:outputLabel value="Nome do Cliente" for="nomecliente"/>
+        <p:inputText value="#{ClienteBean.cliente.nome}" id="nomecliente"/>
+        <p:outputLabel value="Situação" for="situacao"/>
+        <p:selectOneMenu id="situacao" value="#{pesquisapedidoBean.ativo}" style="width: 130px;">
+            <f:selectItem itemLabel="Todos" itemValue="#{null}"/>
+            <f:selectItem itemLabel="Ativo" itemValue="#{true}"/>
+            <f:selectItem itemLabel="Inativo" itemValue="#{false}"/>
+        </p:selectOneMenu>
+    </p:panelGrid>
+    <p:dataTable id="pedidoTable" value="#{pesquisapedidoBean.listaPedidoFiltrado}" var="pedido" style="margin-top: 20px" emptyMessage="Nenhuma pedido encontrado." rows="10" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom" rowsPerPageTemplate="10,20,50">
+        <p:column headerText="Código" style="text-align: center; width: 100px">
+            <h:outputText value="#{pedido.id}"/>
+        </p:column>
+        <p:column headerText="Nome do cliente">
+            <h:outputText value="#{pedido.cliente.nome}"/>
+        </p:column>
+        <p:column headerText="Situação" style="text-align: center ; width: 50px">
+            <h:outputText value="#{pedido.ativo ? 'Ativo' : 'Inativo'}"/>
+        </p:column>
+        <p:column style="width: 100px; text-align: center">
+            <p:commandButton action="#{pedidoBean.editar()}" icon="ui-icon-pencil" title="Editar" ajax="false">
+                <f:setPropertyActionListener target="#{pedidoBean.pedido}" value="#{pedido}"/>
+            </p:commandButton>
+            <p:commandButton icon="ui-icon-trash" title="Excluir" actionListener="#{pesquisapedidoBean.excluir(pedido)}" process="@this" update="messages , pedidoTable">
+                <p:confirm header="Exclusão de Pedido" message="Tem certeza que deseja excluir o pedido selecionando #{pedido.id}?" icon="ui-icon-alert"/>
+            </p:commandButton>
+        </p:column>
     
 
-    <ui:define name="titulo">Index</ui:define>
-  
-    <ui:define name="conteudo" >
-  
-     
-                  
+    </p:dataTable>
     </ui:define>
 
 </ui:composition>   
 
 
 
- 

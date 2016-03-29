@@ -23,7 +23,7 @@ public abstract class DAO<T> {
         this.entidade = entidade;
     }
 
-    public T find(int id) {
+    public T find(long id) {
         this.em = JPAUtil.getEntityManager();
         em.getTransaction().begin();
         T t = em.find(entidade, id);

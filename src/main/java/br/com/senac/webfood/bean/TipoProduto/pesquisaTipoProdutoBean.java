@@ -8,7 +8,7 @@ package br.com.senac.webfood.bean.TipoProduto;
 
 import br.com.senac.webfood.banco.TipoProdutoDAO;
 import br.com.senac.webfood.bean.Bean;
-import br.com.senac.webfood.modelo.Complemento;
+
 import br.com.senac.webfood.modelo.TipoProduto;
 import java.util.List;
 

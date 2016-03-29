@@ -14,7 +14,21 @@
     </h:head>
 
     <h:body>
-
+        <p:ajaxStatus styleClass="ajax-status">
+            <f:facet name="start">
+                <h:graphicImage library="imagem" name="loading.gif"/>
+            </f:facet>
+            <f:facet name="complete">
+                <h:outputText value=""/>
+            </f:facet>
+        </p:ajaxStatus>
+        
+        
+        
+        
+        
+        
+        
         <p:layout fullPage="true">
 
             <p:layoutUnit position="north" size="80"  style="color: aqua" >
@@ -93,10 +107,14 @@
                             <p:separator />
                             <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout" outcome="/admin/Usuario/pesquisaUsuario"/>
                         </p:submenu>
+                       
                             <p:submenu label="Relatórios" icon="ui-icon-folder-collapsed">
                             <p:menuitem value="Clientes"  icon="ui-icon-document" />
                             <p:separator />
-                        </p:submenu>
+                            </p:submenu>
+                         <p:submenu label="Help Oline" icon="ui-icon-folder-collapsed" style="font-size: 12px">
+                            <p:menuitem value="Ajuda"  icon="ui-icon-document" outcome="/admin/HelpOnline/helpOnline"/>
+                            </p:submenu>
                    </p:panelMenu>
                 </h:form>
             </p:layoutUnit>

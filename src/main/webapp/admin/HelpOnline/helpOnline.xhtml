@@ -1,0 +1,71 @@
+<ui:composition template="/WEB-INF/template/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    
+   
+    
+
+    <ui:define name="titulo">Help Online</ui:define>
+  
+    <ui:define name="conteudo" >
+        
+        
+       <p:panelGrid columns="2" style="width: 100%; margin-top: 20px" columnClasses="rotulo , campo">
+   <p>Como cadastrar?</p>
+           
+<p>Toda tela de cadastro do sistema, segue sempre a mesma linha apenas mudam a forma de cadastro pois cada tela tem sua função diferenciada no sistema. Exemplo: a tela de cadastro de cliente, ela vai apenas cadastrar os clientes que desejam efetuar algum pedido, ja á tela de produto só serão feitos cadastros de produtos.
+    Enfim, nas telas de cadastros terão sempre os botôes : “NOVO”, “SALVAR”, “PESQUISAR”.</p>
+
+   <p>NOVO:  Serve para efetuar outro cadastro(obs: se o usuario não clicar nessa botão após efetuar um cadastro, automaticamente ele estara alterando ou atualizando o mesmo).</p>
+
+   <p>SALVAR: Após o cadastro ser feito, deve-se salva-lo em banco para mais tarde caso o usuario deseje pesquisa-lo ou altera-lo ou até mesmo excluir.</p>
+
+   <p>PESQUISAR: Este botão tem a função de ir até a tela de pesquisa de uma determinada tela de cadastro. Exemplo: se no caso o usuário esta na tela de cliente e clicar no botão “PESQUISAR” ele ira para a tela de pesquisa de cliente, assim serve para todas as paginas de cadastro.</p>
+
+   <p>O usuario deve preencher todos os campos necessarios de qualquer tela de cadastro para que seje efetuado o mesmo, caso contrario o cadastro não podera ser feito.</p>
+
+   <p>OBS: Para qualquer outra função no sistema, o usuario deve acessar o painel “MENU” e escolher aonde deseje ir.</p>
+
+        </p:panelGrid> 
+        
+        <p:panelGrid columns="2" style="width: 100%; margin-top: 20px" columnClasses="rotulo , campo">
+   <p>Como pesquisar ?</p>
+   
+   <p>Como toda a tela de cadastro segue a mesma linha só que com funções diferentes, a tela de pesquisa também se encaixa nesse mesmo modelo, aonde todas as telas de pesquisa são iguais, porem funcionam de maneiras diferentes. Exemplo: na tela de pesquisa de produto só serão feitas pesquisas de produto, já a tela de cliente só serão feitas as pesquisas de cliente, porem na tela de pesquisa, terá um painel logo abaixo que se chama “Gride” aonde o usuário terá a mobilidade de poder ver a sua pesquisa, edita-la , altera-la ou excluir.</p>
+
+   <p>Toda tela de pesquisa terá os botões: “PESQUISAR” , “NOVO” , “EDITAR” e “EXCLUIR”(Gride).</p>
+   
+   <p>PESQUISAR: Clicando nesse botão o usuário ira ver suas pesquisas para fazer alguma ação desejada, caso deseje excluir é só clicar no “x” que se apresenta no gride e abrira uma mensagem dizendo: “Deseja excluir o **** selecionado **** ? com duas opções “sim” ou “não”, caso  deseje editar é só clicar no “lápis” ao lado de excluir e abrira uma pagina com os dados da pesquisa para que seja  editada. A pesquisa pode ser feita pelo código ou descrição, nome, telefone e etc.. depende da tela de pesquisa aonde o usuário se encontra, pode-se fazer a pesquisa também se o objeto e “ativo” ou “inativo” logo abaixo dos campos de qualquer tela de pesquisa.</p>
+   
+   <p>NOVO: Clicando em “novo” ira voltar para a tela de cadastro de uma determinada tela de pesquisa.</p>
+
+        </p:panelGrid>
+        
+        <p:panelGrid columns="2" style="width: 100%; margin-top: 20px" columnClasses="rotulo , campo">
+            <p>Como efetuar um pedido?</p>
+            
+            <p>A tela de pedido será a “junção” de todas as telas, nela vai ser feito todo levantamento do que o cliente quer e deseja, terá todas as informações necessárias do cliente para fazer o pedido, terá um painel aonde o usuário vai selecionar o produto, tipo e complementos do pedido, terá a forma de pagamento e também um painel de observações, caso o cliente pede algo diferenciado em seu pedido.</p>
+            
+            <p>Nessa tela terá os botões: “NOVO” , “SALVAR “PESQUISAR” e “IMPRIMIR”.</p>
+            
+            <p>NOVO: Depois de um pedido efetuado, clicando nessa botão que ira zerar a pagina para que seja feito um novo pedido.</p>
+             
+            <p>SALVAR: Ira salvar o pedido em banco, caso o cliente cancele ou altere seu pedido.</p> 
+            
+            <p>PESQUISAR: Clicando nesse botão  da o  mesmo efeito de toda a pagina de pesquisa, só que ele servira de maneira diferente, pois caso o cliente deseje cancelar o pedido após ele ser salvo, a pagina de pesquisa servira para esse proposito, caso o cliente deseje alterar o pedido essa pagina também terá essa função para facilitar o trabalho do usuário. Lembrando que está pagina tem a mesma receita de qualquer pagina de pesquisa só que com uma função diferente.</p>
+            
+            <p>IMPRIMIR: Como a tela de pedidos e uma comanda em si, ela será imprimida para que o atendente ou usuário faça o pedido do cliente.</p>
+
+            
+        </p:panelGrid>
+        
+       
+                  
+    </ui:define>
+
+</ui:composition>   
+

@@ -13,40 +13,42 @@ import javax.persistence.Query;
  *
  * @author sala306b
  */
-
 public class ProdutoDAO extends DAO<Produto>{
-   
 
+   
    public ProdutoDAO (){
        super(Produto.class);
    } 
     
-   public List<Produto> getProdutosByFiltro(Long id, String descricao, Boolean ativo)  {
+   public List<Produto> getProdutoByFiltro(Long id, String descricao, Boolean ativo, Long idTipoProduto)  {
 
-        List<Produto> listaProdutos;
+        List<Produto> listaProduto;
 
-        StringBuilder sb = new StringBuilder("from Produto s where 1 = 1 ");
+        StringBuilder sb = new StringBuilder("from Produto p join p.tipoProduto t where 1 = 1 ");
 
-        if (id != null && id > 0 ) {
-            System.out.println("##############>>>>" + id);
-            sb.append(" and s.id = :Id");
+        if (id != null && id != 0) {
+            sb.append(" and p.id = :Id");
         }
 
         if (descricao != null && !descricao.equals("")) {
-            sb.append(" and s.descricao like :Descricao");
+            sb.append(" and p.descricao like :Descricao");
         }
 
         if (ativo != null) {
-            sb.append(" and s.ativo = :Ativo");
+            sb.append(" and p.ativo = :Ativo");
         }
         
-       
+         if (idTipoProduto != null && idTipoProduto != 0) {
+            sb.append(" and t.id = :IdTipoProduto");
+        }
+      
+
         this.em = JPAUtil.getEntityManager();
 
         em.getTransaction().begin();
         Query query = em.createQuery(sb.toString());
 
-        if (id != null && id > 0 ) {
+        if (id != null && id != 0) {
             query.setParameter("Id", id);
         }
 
@@ -58,13 +60,44 @@ public class ProdutoDAO extends DAO<Produto>{
             query.setParameter("Ativo", ativo);
         }
         
+         if (idTipoProduto != null && idTipoProduto != 0) {
+            query.setParameter("IdTipoProduto", idTipoProduto);
+        }
+        
       
+        
 
-        listaProdutos = query.getResultList();
+        listaProduto = query.getResultList();
         em.getTransaction().commit();
         em.close();
 
-        return listaProdutos;
- 
-}
+        return listaProduto;
+        
+        
+   }
+        
+    public List<Produto> findByNome(String descricao) {
+
+        List<Produto> listaProduto;
+
+        String sql = "from Produto s where s.descricao like :Descricao ";
+
+        this.em = JPAUtil.getEntityManager();
+
+        em.getTransaction().begin();
+        Query query = em.createQuery(sql);
+
+        query.setParameter("Descricao",  descricao + "%");
+
+        listaProduto = query.getResultList();
+        em.getTransaction().commit();
+        em.close();
+        
+
+        return listaProduto;
+        
+        
+
+    }
+    
 }

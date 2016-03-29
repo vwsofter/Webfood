@@ -61,5 +61,13 @@ public class ComplementoDAO extends DAO<Complemento> {
         return listaComplementos;
 
     }
+     public String[] getSelectedComplemento() {
+        return selectedComplemento;
+    }
+
+    public void setSelectedComplemento(String[] selectedComplemento) {
+        this.selectedComplemento = selectedComplemento;
+    }
+     private String[] selectedComplemento;  
 
 }

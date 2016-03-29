@@ -5,11 +5,12 @@
  */
 package br.com.senac.webfood.bean.produto;
 
+import br.com.senac.webfood.banco.TipoProdutoDAO;
 import br.com.senac.webfood.banco.ProdutoDAO;
 import br.com.senac.webfood.bean.Bean;
-
+import br.com.senac.webfood.modelo.TipoProduto;
 import br.com.senac.webfood.modelo.Produto;
-
+import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 
@@ -19,15 +20,23 @@ import javax.enterprise.context.RequestScoped;
  */
 @Named(value = "produtoBean")
 @RequestScoped
-public class cadastroProdutoBean extends Bean {
+public class ProdutoBean extends Bean {
 
     private Produto produto;
-    private ProdutoDAO dao = new ProdutoDAO();
-
-    public cadastroProdutoBean() {
-        if (this.produto == null) {
+    private final ProdutoDAO dao = new ProdutoDAO();
+    private final TipoProdutoDAO daoTipoProdutoDAO = new TipoProdutoDAO();
+    
+    
+    
+    
+    public ProdutoBean() {
+        if (this.produto == null){
             this.limpar();
         }
+    }
+    
+    public List<TipoProduto> getListaTipoProdutoAtiva(){
+        return daoTipoProdutoDAO.findAllAtivo() ;
     }
 
     public Produto getProduto() {
@@ -37,7 +46,7 @@ public class cadastroProdutoBean extends Bean {
     public void setProduto(Produto produto) {
         this.produto = produto;
     }
-
+    
     public String salvar() {
 
         try {
@@ -56,12 +65,12 @@ public class cadastroProdutoBean extends Bean {
 
         return null;
     }
-
-    public String editar() {
+    
+    public String editar(){
         return "/admin/Produto/cadastroProduto";
     }
 
-    private void limpar() {
+    private void limpar(){
         this.produto = new Produto();
     }
 }

@@ -6,7 +6,7 @@
 package br.com.senac.webfood.modelo;
 
 import javax.persistence.Entity;
-
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -15,13 +15,23 @@ import javax.persistence.Entity;
 @Entity
 public class Produto extends Entidade {
 
-  
     private String descricao;
-    private double Preco;
+    private double precoPadrao;
+    @ManyToOne
+    private TipoProduto tipoProduto;
 
-       
-   
+    public boolean isPermitecomplemento() {
+        return permitecomplemento;
+    }
+
+    public void setPermitecomplemento(boolean permitecomplemento) {
+        this.permitecomplemento = permitecomplemento;
+    }
+    private boolean permitecomplemento;
     
+    public Produto() {
+        this.tipoProduto = new TipoProduto();
+    }
 
     public String getDescricao() {
         return descricao;
@@ -31,12 +41,20 @@ public class Produto extends Entidade {
         this.descricao = descricao;
     }
 
-    public double getPreco() {
-        return Preco;
+    public double getPrecoPadrao() {
+        return precoPadrao;
     }
 
-    public void setPreco(double preco) {
-        this.Preco = preco;
+    public void setPrecoPadrao(double precoPadrao) {
+        this.precoPadrao = precoPadrao;
+    }
+
+    public TipoProduto getTipoProduto() {
+        return tipoProduto;
+    }
+
+    public void setTipoProduto(TipoProduto tipoProduto) {
+        this.tipoProduto = tipoProduto;
     }
 
 }
