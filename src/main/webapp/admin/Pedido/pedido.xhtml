@@ -59,11 +59,7 @@
                             <p:inputText id="qtProduto" style="width: 20px" maxlength="5" value="#{pedidoBean.quantidade}" />
                             <p:outputLabel value="R$:" for="valorProduto"  />
                             <p:inputText id="valorProduto" style="width: 50px" maxlength="5" value="#{pedidoBean.preco}"   />
-                            <p:commandButton id="adicionar" icon="ui-icon-circle-plus" 
-                                             actionListener="#{pedidoBean.addProduto}" 
-                                             update="tabelaProduto ,painelProduto" 
-                                             process="@this , qtProduto , valorProduto"/>
-
+                            
                             <h:panelGrid columns="3" cellpadding="5">
                                 <h:outputLabel for="menu" value="Complemento:" />
                                 <p:selectCheckboxMenu id="menu" value="#{pedidoBean.listaComplemento}" label="complementos"
@@ -76,16 +72,12 @@
                                                    />
                                     <p:ajax event="change" process="@this"  />
                                 </p:selectCheckboxMenu>
-                                <p:commandButton value="Adicionar" update="display" />
+                                <p:commandButton id="adicionar" icon="ui-icon-circle-plus" 
+                                                 actionListener="#{pedidoBean.addProduto}" 
+                                                 update="tabelaProduto ,painelProduto" 
+                                                 process="@this , qtProduto , valorProduto"/>
+
                             </h:panelGrid>
-                            <p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
-                                <p:dataList value="#{complementoBean.selectedComplemento}" var="complemento" emptyMessage="Complemento Não selecionando">
-                                    #{complemento}
-                                </p:dataList>
-                            </p:outputPanel>                  
-
-
-
                             <p:commandLink id="pesquisar">
                                 <h:graphicImage library="imagem" name="search.png"/>
                             </p:commandLink>
