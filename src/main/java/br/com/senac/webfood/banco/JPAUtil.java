@@ -15,18 +15,17 @@ import javax.persistence.Persistence;
  */
 public class JPAUtil {
 
-    private static EntityManagerFactory emf;
+    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("WebFoodPU");
 
     public static EntityManager getEntityManager() {
-        EntityManager em = null;
+
         try {
-            emf = Persistence.createEntityManagerFactory("WebFoodPU");
-            em = emf.createEntityManager();
+            return emf.createEntityManager();
         } catch (Exception ex) {
             ex.printStackTrace();
             throw new RuntimeException("Erro ao acessar banco de dados!");
         }
-        return em;
+
     }
 
 }

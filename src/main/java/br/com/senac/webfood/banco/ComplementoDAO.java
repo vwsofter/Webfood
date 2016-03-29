@@ -11,7 +11,7 @@ import javax.persistence.Query;
 
 /**
  *
- * @author daniel
+ * @author wagner
  */
 public class ComplementoDAO extends DAO<Complemento> {
 
