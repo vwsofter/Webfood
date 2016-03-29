@@ -12,56 +12,104 @@
     <ui:define name="titulo">Cadastro de Cliente</ui:define>
   
     <ui:define name="conteudo" >
-      
-        
-            <p:toolbar style="margin-top: 20px">
+         <p:toolbar style="margin-top: 20px">
             <p:toolbarGroup>
-                <p:button value="Novo" outcome="/admin/cliente/cadastroCliente"/>
-                <p:commandButton value="Salvar" id="btnSalvar" action="#{ClienteBean.salvar}" update="@form"    />
+                <p:button value="Novo" outcome="admin/Cliente/cadastroCliente"/>
+                <p:commandButton value="Salvar" id="btnSalvar" action="#{ClienteBean.salvar()}" update="@form"    />
             </p:toolbarGroup>
             <p:toolbarGroup align="right">
-                <p:button value="Pesquisa" outcome="/admin/cliente/pesquisaCliente"/>
+                <p:button value="Pesquisa" outcome="admin/Cliente/pesquisaCliente"/>
             </p:toolbarGroup>
         </p:toolbar>
-        
-         <p:panelGrid columns="2" style="width: 100%; margin-top: 20px" columnClasses="rotulo , campo">
 
-            <p:outputLabel value="Código" for="codigo"/>
-            <p:inputText value="#{ClienteBean.cliente.id}" id="codigo" readonly="true" style="width: 40px" />
-            
-            <p:outputLabel value="Nome" for="nome"/>
-            <p:inputText value="#{ClienteBean.cliente.nome}" required="true" id="nome" />
-            
-            <p:outputLabel value="Telefone1" for="telefone1"/>
-            <p:inputText value="#{ClienteBean.cliente.telefone1}" required="true" id="telefone1" />
-            
-            <p:outputLabel value="Telefone2" for="telefone2"/>
-            <p:inputText value="#{ClienteBean.cliente.telefone2}" required="true" id="telefone2" />
-            
-            <p:outputLabel value="Endereço" for="endereco"/>
-            <p:inputText value="#{ClienteBean.cliente.endereco}" required="true" id="endereco" />
-            
-            <p:outputLabel value="Bairro" for="bairro"/>
-            <p:inputText value="#{ClienteBean.cliente.bairro}" required="true" id="bairro" />
-            
-            <p:outputLabel value="Ponto de Referencia" for="pontodereferencia"/>
-            <p:inputText value="#{ClienteBean.cliente.pontoReferencia}" required="true" id="pontodereferencia" />
-            
-            
-            <p:selectOneRadio id="situacao" value="#{ClienteBean.cliente.ativo}" >
-                
-                <f:selectItem itemLabel="Ativo" itemValue="#{true}" />
-                <f:selectItem itemLabel="Inativo" itemValue="#{false}" />
-            </p:selectOneRadio>
 
-            
-            
-            
+        <p:panelGrid style="width: 100%; margin-top: 20px"> 
+
+            <p:row>
+                <p:column ><p:outputLabel value="Codigo" for="cod"/></p:column>
+                <p:column>
+                    <p:inputText value="#{ClienteBean.cliente.id}" id="cod" readonly="true" style="width: 50px"/>
+                    </p:column>
+
+               
+            </p:row>
+            <p:row>
+
+                <p:column><p:outputLabel value="Nome" for="nome"/></p:column>
+                <p:column colspan="5"><p:inputText value="#{ClienteBean.cliente.nome}" id="nome" required="true" style="width: 98%"/></p:column>
+
+            </p:row>
+
+            <p:row>
+
+                <p:column><p:outputLabel value="CEP" for="cep"/></p:column>
+                <p:column><p:inputText value="#{ClienteBean.cliente.endereco.cep}" id="cep"  /></p:column>
+
+               
+            </p:row>
+
+            <p:row>
+
+                <p:column><p:outputLabel value="Endereco" for="end"/></p:column>
+                <p:column colspan="3"><p:inputText value="#{ClienteBean.cliente.endereco.logradouro}" id="end" required="true" style="width: 99%"/></p:column>
+
+                <p:column ><p:outputLabel value="No." for="numero"/></p:column>
+                <p:column ><p:inputText value="#{ClienteBean.cliente.endereco.numero}" id="numero" /></p:column>
+
+            </p:row>
+
+            <p:row>
+
+                <p:column ><p:outputLabel value="PontoReferecia" for="PontoReferecia"/></p:column>
+                <p:column colspan="5"><p:inputText value="#{ClienteBean.cliente.endereco.pontoreferecia}" id="complemento" style="width: 98%" /></p:column>
+
+
+            </p:row>
+
+            <p:row>
+                <p:column ><p:outputLabel value="Bairro" for="bairro"/></p:column>
+                <p:column ><p:inputText value="#{ClienteBean.cliente.endereco.bairro}" id="bairro" required="true"/></p:column>
+
+                <p:column ><p:outputLabel value="Cidade" for="cid" /></p:column>
+                <p:column><p:inputText value="#{ClienteBean.cliente.endereco.cidade}" required="true" id="cid"/></p:column>
+
+                <p:column><p:outputLabel value="Estado" for="uf"/></p:column>
+                <p:column><p:selectOneMenu value="#{ClienteBean.cliente.endereco.uf}"  id="uf"/></p:column>
+            </p:row>
+
+
+            <p:row>
+
+                <p:column><p:outputLabel value="Telefone" for="tel"/></p:column>
+                <p:column><p:inputText value="#{ClienteBean.cliente.telefone.numero}" id="tel" required="true" /></p:column>
+
+              
+
+            </p:row>
+
+       
+
+            <p:row>
+                <p:column>
+                    <p:outputLabel value="Situação" for="situacao"/>
+                </p:column>
+                <p:column colspan="5">
+                    <p:selectOneRadio value="#{ClienteBean.cliente.ativo}" id="situacao" >
+                        <f:selectItem itemLabel="Ativo" itemValue="true" />
+                        <f:selectItem itemLabel="Inativo" itemValue="false" />
+                    </p:selectOneRadio>
+                </p:column>
+            </p:row>
+
         </p:panelGrid>
 
-        <h:inputHidden value="#{ClienteBean.cliente.id}" />
+
+
                   
     </ui:define>
 
 </ui:composition>   
 
+
+
+ 
