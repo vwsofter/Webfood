@@ -3,7 +3,7 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
 
     
    
@@ -60,9 +60,9 @@
             <p:column headerText="Situação" style="text-align: center ; width: 50px">
                 <h:outputText value="#{cliente.ativo ? 'Ativo' : 'Inativo'}"/>
             </p:column>
-            <p:column style="width: 100px; text-align: center">
+            <p:column style="width: 100px; text-align: center" exportable="false">
                 <p:commandButton action="#{ClienteBean.editar()}"   icon="ui-icon-pencil" title="Editar" ajax="false">
-                    <f:setPropertyActionListener target="#{ClienteBean.cliente}" value="#{cliente.id}" />
+                    <f:setPropertyActionListener target="#{ClienteBean.cliente}" value="#{cliente}" />
                 </p:commandButton>
                 <p:commandButton icon="ui-icon-trash" title="Excluir" actionListener="#{pesquisaClienteBean.excluir(cliente)}" process="@this" update="messages , clienteTable" >
                     <p:confirm header="Exclusão de cliente" 
@@ -79,11 +79,11 @@
             <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
         </p:confirmDialog>
 
-           
+        <h:commandLink>
+            <h:graphicImage library="imagem" name="pdf.png" />
+            <p:dataExporter type="pdf" target="clienteTable" fileName="cliente" />
 
-
-        
-     
+        </h:commandLink>
        
                   
     </ui:define>
