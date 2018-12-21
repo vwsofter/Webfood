@@ -63,7 +63,7 @@
             <p:column headerText="Situação" style="text-align: center ; width: 50px">
                 <h:outputText value="#{formaPagamento.ativo ? 'Ativo' : 'Inativo'}"/>
             </p:column>
-            <p:column style="width: 100px; text-align: center">
+            <p:column style="width: 100px; text-align: center" exportable="false">
                 <p:commandButton action="#{formaPagamentoBean.editar}"   icon="ui-icon-pencil" title="Editar" ajax="false">
                     <f:setPropertyActionListener target="#{formaPagamentoBean.formaPagamento}" value="#{formaPagamento}" />
                 </p:commandButton>
@@ -81,7 +81,12 @@
         </p:confirmDialog>
 
 
+      <h:commandLink>
+            <h:graphicImage library="imagem" name="pdf.png" />
+            <p:dataExporter type="pdf" target="formaPagamentoTable" fileName="FormaPagamento" />
 
+        </h:commandLink>
+       
 
  
      

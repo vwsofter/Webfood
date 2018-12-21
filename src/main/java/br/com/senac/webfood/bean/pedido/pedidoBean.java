@@ -12,7 +12,9 @@ import br.com.senac.webfood.modelo.ItemDePedido;
 import br.com.senac.webfood.modelo.Pedido;
 import br.com.senac.webfood.modelo.Produto;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 
@@ -35,6 +37,7 @@ public class pedidoBean extends Bean {
     private List<Complemento> listaComplemento ; 
 
     private double preco;
+    private long idt ;
 
     public pedidoBean() {
     }
@@ -150,6 +153,9 @@ public class pedidoBean extends Bean {
         } else {
             addMessageError("Favor selecionar Produto.");
         }
+        
+         
+        this.pedido.setId(idt++);
 
     }
     
@@ -169,19 +175,26 @@ public class pedidoBean extends Bean {
         try {
 
             if (this.pedido.getId() == 0) {
-                dao.save(pedido);
+                //dao.save(pedido);
                 addMessageInfo("Salvo com sucesso !");
             } else {
-                dao.update(pedido);
+               // dao.update(pedido);
                 addMessageInfo("Alterado com sucesso !");
             }
 
         } catch (Exception ex) {
             addMessageError(ex.getMessage());
         }
+        
+       this.pedido.setId(++idt);
 
         return null;
     }
+   
+   @PostConstruct
+   public void init(){
+       this.idt = 4 ; 
+   }
     
     
 }

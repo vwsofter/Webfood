@@ -9,11 +9,12 @@
    
     
 
-    <ui:define name="titulo">Pesquisa Tipo de Produto</ui:define>
+    <ui:define name="titulo">Pesquisa de Tipo de Produto</ui:define>
   
     <ui:define name="conteudo" >
           <p:toolbar style="margin-top: 20px">
             <p:toolbarGroup>
+                <a href="pesquisatipoProduto.xhtml"></a>
                 <p:commandButton value="Pesquisar" id="btnPesquisa" action="#{pesquisaTipoProdutoBean.pesquisar()}" update="@form"   />
             </p:toolbarGroup>
             <p:toolbarGroup align="right">
@@ -54,7 +55,7 @@
                 <p:commandButton action="#{tipoProdutoBean.editar}"   icon="ui-icon-pencil" title="Editar" ajax="false">
                     <f:setPropertyActionListener target="#{tipoProdutoBean.tipoProduto}" value="#{TipoProduto}" />
                 </p:commandButton>
-                <p:commandButton icon="ui-icon-trash" title="Excluir" actionListener="#{pesquisaTipoProdutoBean.excluir(tipoProduto)}" process="@this" update="messages , tipoprodutoTable" >
+                <p:commandButton icon="ui-icon-trash" title="Excluir" actionListener="#{pesquisaTipoProdutoBean.excluir(tipoProduto)}" process="@this" update="messages ,tipoprodutoTable" >
                     <p:confirm header="Exclusão do Tipo de Produto" 
                                message="Tem certeza que deseja excluir o Tipo de Produto #{TipoProduto.id}?" icon="ui-icon-alert" />
 
@@ -66,7 +67,12 @@
             <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
             <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
         </p:confirmDialog>
+        <h:commandLink>
+            <h:graphicImage library="imagem" name="pdf.png" />
+            <p:dataExporter type="pdf" target="tipoprodutoTable" fileName="TipoProduto" />
 
+        </h:commandLink>
+       
 
         
       

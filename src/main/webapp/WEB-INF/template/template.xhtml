@@ -51,7 +51,7 @@
 
                 <div style="float: right; margin-right: 50px; margin-top: 20px">
                     <span style="float: left; height: 30px; line-height: 30px;color: #000000; vertical-align:middle">
-                        Olá usuario !
+                        Olá wagner!
 
                         <h:form styleClass="logout">
                             <p:commandLink  action="/login?faces-redirect=true" >
@@ -108,8 +108,8 @@
                             <p:menuitem value="Pesquisar"  icon="ui-icon-circle-zoomout" outcome="/admin/Usuario/pesquisaUsuario"/>
                         </p:submenu>
                        
-                            <p:submenu label="Relatórios" icon="ui-icon-folder-collapsed">
-                            <p:menuitem value="Clientes"  icon="ui-icon-document" />
+                            <p:submenu label="Manual do Usuário" icon="ui-icon-folder-collapsed">
+                                <p:menuitem value="Ajuda"  url="/manual/ManualdoUsuario.pdf" icon="ui-icon-document" />
                             <p:separator />
                             </p:submenu>
                          <p:submenu label="Help Oline" icon="ui-icon-folder-collapsed" style="font-size: 12px">
@@ -125,6 +125,7 @@
                             <h1 >Teste</h1>
                         </ui:insert>
                         <ui:insert name="conteudo" >
+                            
                        </ui:insert>
                     </div>
                 </h:form>

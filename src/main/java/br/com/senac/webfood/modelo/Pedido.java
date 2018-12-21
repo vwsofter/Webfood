@@ -26,15 +26,14 @@ public class Pedido extends Entidade {
     private Date dataAbertura;
     private String observação;
     private int quantidadeParcelas;
-    private boolean retira;
+    
     @ManyToOne
     private FormaPagamento formaPagamento;
     @OneToMany
     private List<ItemDePedido> itens;
 
     
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    private Date dataUltimaAtualizacao;
+    
 
     @Transient
     private double total;
@@ -43,6 +42,7 @@ public class Pedido extends Entidade {
         this.cliente = new Cliente();
         this.formaPagamento = new FormaPagamento();
         this.itens = new ArrayList<>();
+        this.dataAbertura = new Date();
     }
 
     public Cliente getCliente() {
@@ -77,13 +77,8 @@ public class Pedido extends Entidade {
         this.quantidadeParcelas = quantidadeParcelas;
     }
 
-    public boolean isRetira() {
-        return retira;
-    }
-
-    public void setRetira(boolean retira) {
-        this.retira = retira;
-    }
+    
+    
 
     public FormaPagamento getFormaPagamento() {
         return formaPagamento;
@@ -101,13 +96,7 @@ public class Pedido extends Entidade {
         this.itens = itens;
     }
 
-    public Date getDataUltimaAtualizacao() {
-        return dataUltimaAtualizacao;
-    }
-
-    public void setDataUltimaAtualizacao(Date dataUltimaAtualizacao) {
-        this.dataUltimaAtualizacao = dataUltimaAtualizacao;
-    }
+    
 
     public void add(ItemDePedido itemDePedido) {
         this.itens.add(itemDePedido);

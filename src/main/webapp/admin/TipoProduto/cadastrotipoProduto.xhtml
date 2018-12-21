@@ -9,7 +9,7 @@
    
     
 
-    <ui:define name="titulo">#{tipoProdutoBean.tipoProduto.id == 0 ? 'Novo' : 'Alterando' } Tipo de Produto</ui:define>
+    <ui:define name="titulo">#{tipoProdutoBean.tipoProduto.id == 0 ? '' : 'Alterando' }  Cadastro de Tipo de Produto</ui:define>
 
     <ui:define name="conteudo">
        <p:panelGrid columns="2" style="width: 100%; margin-top: 20px" columnClasses="rotulo , campo">
@@ -33,6 +33,12 @@
             </p:selectOneRadio>
 
         </p:panelGrid>
+        <p:toolbar style="margin-top: 20px">
+            
+            <p:toolbarGroup align="right">
+            
+            </p:toolbarGroup>
+        </p:toolbar>
          <div class="AlinhaDireita">
             <p:button value="Novo" outcome="/admin/TipoProduto/cadastrotipoProduto"/>
             <p:commandButton value="Salvar" id="btnSalvar" action="#{tipoProdutoBean.salvar()}" update="@form , messages"    />

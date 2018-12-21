@@ -8,7 +8,7 @@
 
 
 
-    <ui:define name="titulo">#{complementoBean.complemento.id == 0 ? 'Novo' : 'Alterando' }  Complemento</ui:define>
+    <ui:define name="titulo">#{complementoBean.complemento.id == 0 ? 'Novo' : 'Alterando' }Cadastro de Complemento</ui:define>
 
     <ui:define name="conteudo">
 
@@ -36,12 +36,18 @@
             </p:selectOneRadio>
 
         </p:panelGrid>
+        <p:toolbar style="margin-top: 20px">
+            
+            <p:toolbarGroup align="right">
+            
+            </p:toolbarGroup>
+        </p:toolbar>
         <div class="AlinhaDireita">
             <p:button value="Novo" outcome="/admin/Complementos/CadastrodeComplementos"/>
             <p:commandButton value="Salvar" id="btnSalvar" action="#{complementoBean.salvar}" update="@form , messages"    />
             <h:inputHidden value="#{complementoBean.complemento.id}" />
         </div>
-
+    
     </ui:define>
 
 </ui:composition>   

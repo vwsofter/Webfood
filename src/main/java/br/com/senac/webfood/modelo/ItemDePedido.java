@@ -78,5 +78,17 @@ public class ItemDePedido extends Entidade {
         this.total = this.quantidade * this.precoUnitario;
         return this.total;
     }
+    
+    @Transient
+    public String getListaComplementoString(){
+        StringBuilder builder = new StringBuilder() ; 
+        if(this.listaComplemento !=  null){
+        for(Complemento c : this.listaComplemento){
+            builder.append(c.getDescricao() + " , " ); 
+        }
+        
+        }
+        return builder.toString() ; 
+    }
 
 }

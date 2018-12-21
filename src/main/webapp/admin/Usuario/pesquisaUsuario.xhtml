@@ -9,7 +9,7 @@
    
     
 
-    <ui:define name="titulo">Index</ui:define>
+    <ui:define name="titulo">Pesquisa de Usuario</ui:define>
   
     <ui:define name="conteudo" >
          <p:toolbar style="margin-top: 20px">
@@ -73,7 +73,12 @@
             <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
             <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
         </p:confirmDialog>
+        
+          <h:commandLink>
+            <h:graphicImage library="imagem" name="pdf.png" />
+            <p:dataExporter type="pdf" target="usuarioTable" fileName="usuario" />
 
+        </h:commandLink>
 
 
 

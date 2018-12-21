@@ -26,8 +26,7 @@ import javax.enterprise.context.RequestScoped;
 @RequestScoped
 public class ComplementoBean extends Bean {
 
-    private String[] selectedComplemento; 
-    private List<Complemento> complementos;
+   
     
      private Complemento complemento;
     
@@ -75,14 +74,7 @@ public class ComplementoBean extends Bean {
         this.complemento = new Complemento();
     }
 
-    public String[] getSelectedComplemento() {
-        return selectedComplemento;
-    }
-
-    public void setSelectedComplemento(String[] selectedComplemento) {
-        this.selectedComplemento = selectedComplemento;
-    }
-
+   
 }
 
 

@@ -47,7 +47,7 @@
             <p:column headerText="Situação" style="text-align: center ; width: 50px">
                 <h:outputText value="#{complemento.ativo ? 'Ativo' : 'Inativo'}"/>
             </p:column>
-            <p:column style="width: 100px; text-align: center">
+            <p:column style="width: 100px; text-align: center" exportable="false">
                 <p:commandButton action="#{complementoBean.editar}"   icon="ui-icon-pencil" title="Editar" ajax="false">
                     <f:setPropertyActionListener target="#{complementoBean.complemento}" value="#{complemento}" />
                 </p:commandButton>
@@ -64,6 +64,12 @@
             <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
         </p:confirmDialog>
 
+         <h:commandLink>
+            <h:graphicImage library="imagem" name="pdf.png" />
+            <p:dataExporter type="pdf" target="complementoTable" fileName="Complemento" />
+
+        </h:commandLink>
+       
 
     </ui:define>
 
